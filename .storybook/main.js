@@ -7,4 +7,5 @@ module.exports = {
     '@storybook/addon-a11y',
   ],
   framework: '@storybook/html',
+  staticDirs: ['../public'],
 };
