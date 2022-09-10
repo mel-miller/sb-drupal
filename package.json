@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/mel-miller/sb-drupal/issues"
   },
-  "homepage": "https://github.com/mel-miller/sb-drupal#readme"
+  "homepage": "https://github.com/mel-miller/sb-drupal#readme",
+  "dependencies": {
+    "generator-sb-drupal": "github:mel-miller/generator-sb-drupal"
+  }
 }
