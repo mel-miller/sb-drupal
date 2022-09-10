@@ -1,1 +1,10 @@
+#### packages ####
 node_modules
+vendor
+
+#### Storybook ####
+storybook-static
+build-storybook.log
+
+#### OS ####
+.DS_Store
