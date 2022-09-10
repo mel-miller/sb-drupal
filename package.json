@@ -35,6 +35,9 @@
     "@storybook/manager-webpack4": "^6.5.10",
     "@storybook/testing-library": "^0.0.13",
     "babel-loader": "^8.2.5",
-    "generator-sb-drupal": "github:mel-miller/generator-sb-drupal"
+    "drupal-twig-extensions": "^1.0.0-beta.4",
+    "generator-sb-drupal": "github:mel-miller/generator-sb-drupal",
+    "twig": "^1.15.4",
+    "twig-loader": "^0.5.5"
   }
 }
