@@ -1,7 +1,7 @@
 {
   "name": "sb-drupal",
   "version": "0.1.0",
-  "description": "A Storybook implementation for Drupal",
+  "description": "A Storybook implementation for Drupal.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.19.0",
+    "@storybook/addon-a11y": "^6.5.10",
     "@storybook/addon-actions": "^6.5.10",
     "@storybook/addon-essentials": "^6.5.10",
     "@storybook/addon-interactions": "^6.5.10",
