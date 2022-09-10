@@ -1,0 +1,24 @@
+{
+  "name": "sb-drupal",
+  "version": "0.1.0",
+  "description": "A Storybook implementation for Drupal",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mel-miller/sb-drupal.git"
+  },
+  "keywords": [
+    "Storybook",
+    "Drupal",
+    "Twig"
+  ],
+  "author": "M. Miller",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/mel-miller/sb-drupal/issues"
+  },
+  "homepage": "https://github.com/mel-miller/sb-drupal#readme"
+}
