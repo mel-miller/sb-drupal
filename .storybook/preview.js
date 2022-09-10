@@ -1,3 +1,5 @@
+import { addDecorator } from '@storybook/html';
+import { useEffect } from '@storybook/client-api';
 import './_drupal.js';
 
 // Emulate Drupal behaviors.
