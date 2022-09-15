@@ -13,22 +13,22 @@ const rename = require('gulp-rename');
 var config = {};
 config.foundations = {
   scss: 'src/foundations/**/_*.scss',
-  js: 'src/foundations/**/*.js',
+  js: 'src/foundations/**/*.behaviors.js',
   twig: ['src/foundations/**/*.twig', '!src/foundations/**/*.local.twig'],
 };
 config.utilities = {
   scss: 'src/utilities/**/_*.scss',
-  js: 'src/utilities/**/*.js',
+  js: 'src/utilities/**/*.behaviors.js',
   twig: ['src/utilities/**/*.twig', '!src/utilities/**/*.local.twig'],
 };
 config.components = {
   scss: 'src/components/**/_*.scss',
-  js: 'src/components/**/*.js',
+  js: 'src/components/**/*.behaviors.js',
   twig: ['src/components/**/*.twig', '!src/components/**/*.local.twig'],
 };
 config.recipes = {
   scss: 'src/recipes/**/_*.scss',
-  js: 'src/recipes/**/*.js',
+  js: 'src/recipes/**/*.behaviors.js',
   twig: ['src/recipes/**/*.twig', '!src/recipes/**/*.local.twig'],
 };
 config.stylesMain = 'src/main.scss';

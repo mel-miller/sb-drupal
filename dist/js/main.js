@@ -1,20 +1,5 @@
-import TwigButton from './button.twig';
-import ButtonDocs from '!!raw-loader!./button.docs.mdx';
-
-export default {
-  title: 'Components/Button',
-  parameters: {
-    componentSubtitle: '',
-    docs: {
-      description: {
-        component: ButtonDocs,
-      },
-    },
+Drupal.behaviors.Tabs = {
+  attach: function (context, settings) {
+    // Tabs behaviors go here.
   },
-  argTypes: {},
-  args: {},
 };
-
-const Template = ({}) => TwigButton({});
-
-export const Default = Template.bind({});
