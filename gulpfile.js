@@ -6,7 +6,7 @@ const minify = require('gulp-minify');
 const fs = require('fs-extra');
 const postcss = require('gulp-postcss');
 const sass = require('gulp-sass')(require('sass'));
-// const replace = require('gulp-replace');
+const replace = require('gulp-replace');
 const rename = require('gulp-rename');
 
 // Start configuration.
@@ -103,4 +103,13 @@ const watchJs = () => {
   watch([config.foundations.js, config.utilities.js, config.components.js, config.recipes.js], compileJs);
 };
 
-exports.default = series(cleanDist, compileStyles, compileJs, parallel(watchStyles, watchJs));
+// Collect Twig files for dist.
+const collectTwig = (done) => {
+  src(config.components.twig)
+    .pipe(replace('"../../', '"@mm/'))
+    .pipe(replace('"../', '"@mm/'))
+    .pipe(dest(config.dist.twig));
+  done();
+};
+
+exports.default = series(cleanDist, compileStyles, compileJs, collectTwig, parallel(watchStyles, watchJs));
