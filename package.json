@@ -6,7 +6,8 @@
   "scripts": {
     "gulp": "./node_modules/gulp/bin/gulp.js",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "develop": "concurrently --raw --kill-others \"npm run gulp\" \"npm run storybook\"",
+    "build:storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,7 @@
     "@storybook/testing-library": "^0.0.13",
     "autoprefixer": "^10.4.8",
     "babel-loader": "^8.2.5",
+    "concurrently": "^7.4.0",
     "cssnano": "^5.1.13",
     "drupal-twig-extensions": "^1.0.0-beta.4",
     "fs-extra": "^10.1.0",
