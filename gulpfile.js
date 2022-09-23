@@ -106,8 +106,8 @@ const watchJs = () => {
 // Collect Twig files for dist.
 const collectTwig = (done) => {
   src(config.components.twig)
-    .pipe(replace('"../../', '"@mm/'))
-    .pipe(replace('"../', '"@mm/'))
+    .pipe(replace('"../../', '"@sb/'))
+    .pipe(replace('"../', '"@sb/'))
     .pipe(dest(config.dist.twig));
   done();
 };
