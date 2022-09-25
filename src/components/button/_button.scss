@@ -19,7 +19,7 @@
   }
 
   &:focus-visible {
-    --button--outline-color: var(--color-neutral-darkest);
+    --button--outline-color: var(--color-functional-focus);
   }
 
   &:active {
@@ -31,12 +31,12 @@
   &[disabled],
   &[aria-disabled='true'] {
     cursor: not-allowed;
-    --button--background-color: var(--color-neutral-light);
-    --button--border-color: var(--color-neutral-light);
-    --button--text-color: var(--color-neutral-lightest);
+    --button--background-color: var(--color-functional-disabled-background);
+    --button--border-color: var(--color-functional-disabled-background);
+    --button--text-color: var(--color-functional-disabled-text-on-background);
 
     &:hover {
-      --button--text-color: var(--color-neutral-lightest);
+      --button--text-color: var(--color-functional-disabled-text-on-background);
     }
   }
 }

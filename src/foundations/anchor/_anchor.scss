@@ -1,0 +1,22 @@
+a {
+  color: var(--color-primary-dark);
+  font-weight: 600;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:active {
+    color: var(--color-accent-bright-dark);
+  }
+
+  &:visited {
+    color: var(--color-functional-visited);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-functional-focus);
+    outline-offset: 2px;
+    text-decoration: none;
+  }
+}

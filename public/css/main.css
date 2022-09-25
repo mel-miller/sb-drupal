@@ -312,16 +312,18 @@ template {
 :root {
   --breakpoint-small-max: 640px;
   --breakpoint-medium-min: 641px;
+  --breakpoint-medium-max: 1024px;
   --breakpoint-large-min: 1025px;
   --container-max-width: 1200px;
   --color-primary-dark: #177785;
-  --color-primary-regular: #25ced1;
+  --color-primary-regular: #2ca5aa;
   --color-primary-light: #aeedee;
   --color-accent-dark: #f06630;
   --color-accent-regular: #ff8a5b;
   --color-accent-light: #feba9d;
   --color-accent-lightest: #fceade;
   --color-accent-bright: #e94967;
+  --color-accent-bright-dark: #c5304b;
   --color-neutral-darkest: #061f23;
   --color-neutral-dark: #394c50;
   --color-neutral-regular-dark: #647376;
@@ -332,12 +334,38 @@ template {
   --color-neutral-white: #ffffff;
   --color-opacity-clear: rgba(0, 0, 0, 0);
   --color-opacity-black: rgba(0, 0, 0, 0.5);
+  --color-functional-focus: var(--color-accent-bright-dark);
+  --color-functional-visited: #630084;
+  --color-functional-disabled-background: var(--color-neutral-light);
+  --color-functional-disabled-text-on-background: var(--color-neutral-lightest);
+  --color-functional-disabled-text: var(--color-neutral-regular);
+  --color-functional-disabled-input: var(--color-neutral-light);
   --typography-font-headings: "Poppins", sans-serif;
   --typography-font-bodycopy: "Aleo", serif;
   --typography-font-buttons: "Poppins", sans-serif;
 }
 
+a {
+  color: var(--color-primary-dark);
+  font-weight: 600;
+}
+a:hover {
+  text-decoration: none;
+}
+a:active {
+  color: var(--color-accent-bright-dark);
+}
+a:visited {
+  color: var(--color-functional-visited);
+}
+a:focus-visible {
+  outline: 2px solid var(--color-functional-focus);
+  outline-offset: 2px;
+  text-decoration: none;
+}
+
 h1 {
+  color: var(--color-neutral-darkest);
   font-family: var(--typography-font-headings);
   font-size: 3.052rem;
   font-weight: 700;
@@ -348,6 +376,7 @@ h1 {
 }
 
 h2 {
+  color: var(--color-neutral-darkest);
   font-family: var(--typography-font-headings);
   font-size: 2.441rem;
   font-weight: 700;
@@ -358,6 +387,7 @@ h2 {
 }
 
 h3 {
+  color: var(--color-neutral-darkest);
   font-family: var(--typography-font-headings);
   font-size: 1.953rem;
   font-weight: 700;
@@ -368,6 +398,7 @@ h3 {
 }
 
 h4 {
+  color: var(--color-neutral-darkest);
   font-family: var(--typography-font-headings);
   font-size: 1.563rem;
   font-weight: 700;
@@ -378,6 +409,7 @@ h4 {
 }
 
 h5 {
+  color: var(--color-neutral-darkest);
   font-family: var(--typography-font-headings);
   font-size: 1.25rem;
   font-weight: 600;
@@ -388,6 +420,7 @@ h5 {
 }
 
 h6 {
+  color: var(--color-neutral-darkest);
   font-family: var(--typography-font-headings);
   font-size: 1rem;
   font-weight: 600;
@@ -399,6 +432,7 @@ h6 {
 
 body,
 p {
+  color: var(--color-neutral-darkest);
   font-family: var(--typography-font-bodycopy);
   font-size: 1rem;
   line-height: 160%;
@@ -428,7 +462,7 @@ p {
   --button--text-color: var(--color-neutral-white);
 }
 .button:focus-visible {
-  --button--outline-color: var(--color-neutral-darkest);
+  --button--outline-color: var(--color-functional-focus);
 }
 .button:active {
   --button--background-color: var(--color-neutral-darkest);
@@ -437,12 +471,12 @@ p {
 }
 .button[disabled], .button[aria-disabled=true] {
   cursor: not-allowed;
-  --button--background-color: var(--color-neutral-light);
-  --button--border-color: var(--color-neutral-light);
-  --button--text-color: var(--color-neutral-lightest);
+  --button--background-color: var(--color-functional-disabled-background);
+  --button--border-color: var(--color-functional-disabled-background);
+  --button--text-color: var(--color-functional-disabled-text-on-background);
 }
 .button[disabled]:hover, .button[aria-disabled=true]:hover {
-  --button--text-color: var(--color-neutral-lightest);
+  --button--text-color: var(--color-functional-disabled-text-on-background);
 }
 
 .button--secondary {

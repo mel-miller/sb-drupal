@@ -1,5 +1,6 @@
 // Heading styles mixin.
 @mixin heading($font-size, $font-weight: 700) {
+  color: var(--color-neutral-darkest);
   font-family: var(--typography-font-headings);
   font-size: $font-size;
   font-weight: $font-weight;
