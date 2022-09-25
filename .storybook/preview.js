@@ -16,6 +16,11 @@ addDecorator((Story) => {
 });
 
 export const parameters = {
+  options: {
+    storySort: {
+      order: ['Documentation', 'Foundations', 'Utilities', 'Components', 'Recipes'],
+    },
+  },
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
