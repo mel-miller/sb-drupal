@@ -1,0 +1,1 @@
+<button {% if type and type != 'button' %}type="{{ type }}" {% endif -%}{% if disabled %}disabled {% endif %}class="button{% if variant and variant != 'primary' %} button--{{ variant }}{% endif %}">{{ text }}</button>

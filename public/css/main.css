@@ -337,6 +337,66 @@ template {
   --typography-font-buttons: "Poppins", sans-serif;
 }
 
+h1 {
+  font-family: var(--typography-font-headings);
+  font-size: 3.052rem;
+  font-weight: 700;
+  line-height: 125%;
+  letter-spacing: none;
+  margin-block-start: 0;
+  margin-block-end: 0.5em;
+}
+
+h2 {
+  font-family: var(--typography-font-headings);
+  font-size: 2.441rem;
+  font-weight: 700;
+  line-height: 125%;
+  letter-spacing: none;
+  margin-block-start: 0;
+  margin-block-end: 0.5em;
+}
+
+h3 {
+  font-family: var(--typography-font-headings);
+  font-size: 1.953rem;
+  font-weight: 700;
+  line-height: 125%;
+  letter-spacing: none;
+  margin-block-start: 0;
+  margin-block-end: 0.5em;
+}
+
+h4 {
+  font-family: var(--typography-font-headings);
+  font-size: 1.563rem;
+  font-weight: 700;
+  line-height: 125%;
+  letter-spacing: none;
+  margin-block-start: 0;
+  margin-block-end: 0.5em;
+}
+
+h5 {
+  font-family: var(--typography-font-headings);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 125%;
+  letter-spacing: none;
+  margin-block-start: 0;
+  margin-block-end: 0.5em;
+}
+
+h6 {
+  font-family: var(--typography-font-headings);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 125%;
+  letter-spacing: none;
+  margin-block-start: 0;
+  margin-block-end: 0.5em;
+}
+
 body,
 p {
   font-family: var(--typography-font-bodycopy);
