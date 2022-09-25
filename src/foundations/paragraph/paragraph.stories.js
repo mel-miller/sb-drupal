@@ -7,7 +7,7 @@ const sampleParagraph2 = `Fam vinyl banjo, celiac pok pok everyday carry swag qu
 export default {
   title: 'Foundations/Typography/Paragraph',
   parameters: {
-    componentSubtitle: 'Native HTML paragraph element',
+    componentSubtitle: 'HTML paragraph element',
   },
   argTypes: {
     paragraphs: {
