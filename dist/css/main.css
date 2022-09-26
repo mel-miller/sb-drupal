@@ -441,6 +441,26 @@ p {
   margin-block-end: 1rem;
 }
 
+.container {
+  max-width: 1200px;
+  padding-inline-start: 4%;
+  padding-inline-end: 4%;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+}
+@media (min-width: 641px) {
+  .container {
+    padding-inline-start: 3%;
+    padding-inline-end: 3%;
+  }
+}
+@media (min-width: 1025px) {
+  .container {
+    padding-inline-start: 3%;
+    padding-inline-end: 3%;
+  }
+}
+
 .grid__container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
