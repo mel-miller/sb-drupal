@@ -1,0 +1,51 @@
+Breakpoints are standardized values for media queries and are used in conjunction with our grid. The small breakpoint has a maximum value, while the medium and large breakpoints have minimum values. Medium and Large breakpoints are additive.
+
+## Values
+
+| name     | value             |
+| -------- | ----------------- |
+| `small`  | max-width: 640px  |
+| `medium` | min-width: 641px  |
+| `large`  | min-width: 1025px |
+
+## Breakpoint mixin
+
+### Import
+
+Import the breakpoint mixin — via `@use` syntax — into the Sass partial where you wish to use it.
+
+For example:
+
+<!-- prettier-ignore -->
+```css
+
+@use '../breakpoints/_breakpoints.scss' as *;
+```
+
+### Usage
+
+For example, we can set a minimum height of a div when the viewport reaches the large breakpoint like so:
+
+<!-- prettier-ignore -->
+```css
+@include breakpoint(large) {
+  .sample-div {
+    min-height: 4rem;
+  }
+};
+```
+
+The mixin can also be used within a css rule. This can be handy when applying multiple media queries to the same selector. For example:
+
+<!-- prettier-ignore -->
+```css
+.sample-div {
+  @include breakpoint(medium) {
+    min-height: 3rem;
+  }
+
+  @include breakpoint(large) {
+    min-height: 4rem;
+  }
+}
+```

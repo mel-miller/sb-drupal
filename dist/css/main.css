@@ -310,11 +310,10 @@ template {
 }
 
 :root {
-  --breakpoint-small-max: 640px;
-  --breakpoint-medium-min: 641px;
-  --breakpoint-medium-max: 1024px;
-  --breakpoint-large-min: 1025px;
-  --container-max-width: 1200px;
+  --grid-column-sm: 21.34375%;
+  --grid-gap-sm: 4.875%;
+  --grid-column-md: 5.125%;
+  --grid-gap-md: 3.5%;
   --color-primary-dark: #177785;
   --color-primary-regular: #2ca5aa;
   --color-primary-light: #aeedee;
@@ -442,6 +441,116 @@ p {
   margin-block-end: 1rem;
 }
 
+.grid__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: var(--grid-gap-sm);
+  row-gap: 1.5rem;
+}
+@media (min-width: 641px) {
+  .grid__container {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--grid-gap-md);
+    row-gap: 1.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid__item {
+    grid-column: span 4;
+  }
+  .grid__item--sm-1 {
+    grid-column: span 1;
+  }
+  .grid__item--sm-2 {
+    grid-column: span 2;
+  }
+  .grid__item--sm-3 {
+    grid-column: span 3;
+  }
+  .grid__item--sm-4 {
+    grid-column: span 4;
+  }
+}
+@media (min-width: 641px) {
+  .grid__item {
+    grid-column: span 12;
+  }
+  .grid__item--md-1 {
+    grid-column: span 1;
+  }
+  .grid__item--md-2 {
+    grid-column: span 2;
+  }
+  .grid__item--md-3 {
+    grid-column: span 3;
+  }
+  .grid__item--md-4 {
+    grid-column: span 4;
+  }
+  .grid__item--md-5 {
+    grid-column: span 5;
+  }
+  .grid__item--md-6 {
+    grid-column: span 6;
+  }
+  .grid__item--md-7 {
+    grid-column: span 7;
+  }
+  .grid__item--md-8 {
+    grid-column: span 8;
+  }
+  .grid__item--md-9 {
+    grid-column: span 9;
+  }
+  .grid__item--md-10 {
+    grid-column: span 10;
+  }
+  .grid__item--md-11 {
+    grid-column: span 11;
+  }
+  .grid__item--md-12 {
+    grid-column: span 12;
+  }
+}
+@media (min-width: 1025px) {
+  .grid__item--lg-1 {
+    grid-column: span 1;
+  }
+  .grid__item--lg-2 {
+    grid-column: span 2;
+  }
+  .grid__item--lg-3 {
+    grid-column: span 3;
+  }
+  .grid__item--lg-4 {
+    grid-column: span 4;
+  }
+  .grid__item--lg-5 {
+    grid-column: span 5;
+  }
+  .grid__item--lg-6 {
+    grid-column: span 6;
+  }
+  .grid__item--lg-7 {
+    grid-column: span 7;
+  }
+  .grid__item--lg-8 {
+    grid-column: span 8;
+  }
+  .grid__item--lg-9 {
+    grid-column: span 9;
+  }
+  .grid__item--lg-10 {
+    grid-column: span 10;
+  }
+  .grid__item--lg-11 {
+    grid-column: span 11;
+  }
+  .grid__item--lg-12 {
+    grid-column: span 12;
+  }
+}
 .button {
   background-color: var(--button--background-color, var(--color-primary-dark));
   color: var(--button--text-color, var(--color-neutral-white));

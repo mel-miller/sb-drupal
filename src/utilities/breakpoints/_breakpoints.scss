@@ -1,0 +1,24 @@
+@use '../../foundations/_variables.scss' as *;
+
+// Breakpoint mixin.
+@mixin breakpoint($breakpoint) {
+  @if $breakpoint == small {
+    @media (max-width: $breakpoint-small-max) {
+      @content;
+    }
+  } @else if $breakpoint == medium {
+    @media (min-width: $breakpoint-medium-min) {
+      @content;
+    }
+  } @else if $breakpoint == large {
+    @media (min-width: $breakpoint-large-min) {
+      @content;
+    }
+  } @else if $breakpoint == max {
+    @media (min-width: $container-max-width) {
+      @content;
+    }
+  } @else {
+    @warn "Options are: small, medium, large, or max";
+  }
+}
