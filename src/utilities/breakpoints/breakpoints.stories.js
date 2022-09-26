@@ -10,9 +10,8 @@ export default {
         component: BreakpointsDocs,
       },
     },
+    controls: { disabled: true },
   },
-  argTypes: {},
-  args: {},
 };
 
 const Template = ({}) => TwigBreakpoints({});
