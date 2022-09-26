@@ -6,7 +6,7 @@ A grid container is implemented by applying the CSS class `grid__container` to a
 
 Grid items must always be direct descendants of the grid container and are typically made up of `<div>` elements. However, there may be use cases where other HTML sectioning elements could be considered such as `<aside>`, `<article>`, or `<section>`.
 
-Each grid item will contain the base class `grid__item`, as well as a modifier class for each breakpoint size based on the following convention: `pds-grid__item--[breakpoint]-[columns]`.
+Each grid item will contain the base class `grid__item`, as well as a modifier class for each breakpoint size based on the following convention: `grid__item--[breakpoint]-[columns]`.
 
 Because medium and large breakpoints each contain 12 columns, it is not necessary to explicitly define a column width for large unless it will have a different value than medium.
 
@@ -15,7 +15,7 @@ For example, a grid item that is full-width at small and 50% at medium and large
 <!-- prettier-ignore -->
 ```html
 
-<div class="grid__item pds-grid__item--sm-4 pds-grid__item--md-6"></div>
+<div class="grid__item grid__item--sm-4 grid__item--md-6"></div>
 ```
 
 **Note:** Grid items that have missing or invalid modifier classes for each breakpoint size will default to the maximum column width for that breakpoint.
