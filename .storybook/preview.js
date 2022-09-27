@@ -66,6 +66,35 @@ export const parameters = {
 			date: /Date$/,
 		},
 	},
+	backgrounds: {
+		default: 'white',
+		values: [
+			{
+				name: 'white',
+				value: 'var(--color-neutral-white)',
+			},
+			{
+				name: 'primary-light',
+				value: 'var(--color-primary-lightest)',
+			},
+			{
+				name: 'accent-light',
+				value: 'var(--color-accent-lightest)',
+			},
+			{
+				name: 'neutral-light',
+				value: 'var(--color-neutral-lightest)',
+			},
+			{
+				name: 'dark',
+				value: 'var(--color-neutral-darkest)',
+			},
+			{
+				name: 'primary-dark',
+				value: 'var(--color-primary-dark)',
+			},
+		],
+	},
 	viewport: {
 		viewports: breakpointViewports,
 	},
