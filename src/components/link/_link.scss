@@ -1,0 +1,70 @@
+@mixin link($color, $hover, $active) {
+	color: $color;
+	font-family: var(--typography-font-headings);
+	font-size: 1.25rem;
+	line-height: 1;
+	font-weight: 700;
+	text-decoration: none;
+
+	&:visited {
+		color: $color;
+	}
+
+	&::after {
+		content: '';
+		display: inline-block;
+		border-right: 3px solid $color;
+		border-bottom: 3px solid $color;
+		width: 9px;
+		height: 9px;
+		rotate: -45deg;
+		translate: 8px -1px;
+		transition: 0.05s ease;
+	}
+
+	&:hover {
+		text-decoration: underline;
+		color: $hover;
+
+		&::after {
+			translate: 12px -1px;
+			border-color: $hover;
+		}
+	}
+
+	&:active {
+		color: $active;
+		&::after {
+			border-color: $active;
+		}
+	}
+
+	&:focus-visible {
+		outline: 2px solid $active;
+		outline-offset: 4px;
+	}
+}
+
+.link {
+	@include link(
+		var(--color-primary-regular),
+		var(--color-primary-dark),
+		var(--color-neutral-dark)
+	);
+}
+
+.link--secondary {
+	@include link(
+		var(--color-accent-bright),
+		var(--color-accent-bright-dark),
+		var(--color-neutral-darkest)
+	);
+}
+
+.link--reverse {
+	@include link(
+		var(--color-neutral-white),
+		var(--color-neutral-light),
+		var(--color-neutral-darkest)
+	);
+}
