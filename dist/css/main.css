@@ -817,6 +817,10 @@ p {
   }
 }
 
+.card--without-image {
+  padding-block-start: 0.5rem;
+}
+
 .card__image img {
   width: 100%;
   aspect-ratio: 3/2;
@@ -833,14 +837,15 @@ p {
   font-family: var(--typography-font-headings);
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   letter-spacing: 0.04em;
   color: var(--color-neutral-regular-dark);
-  margin-block-start: 0.75rem;
+  margin-block-start: 1rem;
+  margin-block-end: -0.25rem;
 }
 
 .card__heading {
-  margin-block-start: 0.75rem;
+  margin-block-start: 1rem;
   margin-block-end: 0.25rem;
 }
 .card__heading h2,

@@ -79,4 +79,9 @@ const Template = ({
 		link,
 	})
 
-export const Card = Template.bind({})
+export const DefaultCard = Template.bind({})
+
+export const CardWithoutImage = Template.bind({})
+CardWithoutImage.args = {
+	image: '',
+}

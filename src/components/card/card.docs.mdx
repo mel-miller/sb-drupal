@@ -1,7 +1,66 @@
-<!-- ## Purpose
-
 ## Usage
+
+Cards can be used individually or within a grid, and contain the following elements:
+
+- Image (3:2 ratio)
+- Kicker
+- Heading (can be rendered as h2 or h3, but will look the same)
+- Body Text (can be used as a teaser summary)
+- Link
 
 ## Drupal Theme Implementation
 
-### Template Example -->
+This component can be implemented as a block or as a grid within a view. Block implementation will be detailed below. See the _Card Grid_ recipe for views implementation guidance.
+
+The block type should be created with the following fields:
+
+| Field       | Required | Type                     | Max Values | Additional settings       | Display Format               |
+| ----------- | -------- | ------------------------ | ---------- | ------------------------- | ---------------------------- |
+| Card Image  | No       | Entity reference (Media) | 1          | Media type: Image         | Rendered Entity (as Default) |
+| Kicker Text | No       | Text (plain)             | 1          |                           | Plain Text                   |
+| Body Text   | Yes      | Text (formatted, long)   | 1          |                           | Default                      |
+| Link        | Yes      | Link                     | 1          | Allow link text: required | Link (Link text not trimmed) |
+
+- All field labels should be set to _Hidden_.
+- Field names do not need to match exactly what is in this table as long as they are correctly mapped within your theme's block template. However, many of these fields will be reused in other components, so it is advisable to be consistent across the site.
+- There is no need to create a Heading field, as the block title (aka `label`) will be mapped to the heading_text variable.
+
+### Inline Block Template Example
+
+```
+{%
+  set classes = [
+    'block',
+    'block--' ~ configuration.provider|clean_class,
+    block_bundle ? 'block--' ~ block_bundle|clean_class
+  ]
+%}
+
+{# Preprocess Image #}
+{% set image = {
+  src: file_url(content.field_card_image[0]['#media'].field_media_image.entity.uri.value),
+  alt: content.field_card_image[0]['#media'].field_media_image.alt
+}%}
+
+{# Preprocess link #}
+{% set link = {
+  url: content.field_link[0]['#url'],
+  text: content.field_link[0]['#title']
+}%}
+
+<div{{ attributes.addClass(classes) }}>
+  {{ title_suffix }}
+
+  {% include "@pds/card/card.twig" with {
+    element_type: 'div',
+    kicker_text: content.field_kicker|render|striptags|trim,
+    heading_text: label,
+    heading_level: 'h2',
+    body_text: content.field_body_text.0,
+  }%}
+</div>
+
+```
+
+- In this example, the `element_type` is set to `div` in code. However, if you would like the site builder to be able to choose the element type at build time, you could map it to a select field that takes `div`, `article`, or `aside` as options.
+- In this example, the `heading_level` is set to `h2` in code. However, if you would like the site builder to be able to choose the heading level at build time, you could map it to a select field that takes `h2` or `h3` as options.

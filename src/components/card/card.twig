@@ -1,4 +1,4 @@
-<{{ element_type|default('div') }} class="card">
+<{{ element_type|default('div') }} class="card{% if not image.src %} card--without-image{% endif %}">
 
   {% if image.src and link %}
   <div class="card__image">
