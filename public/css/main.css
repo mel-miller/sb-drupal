@@ -318,15 +318,14 @@ template {
   --color-primary-regular: #199098;
   --color-primary-light: #aeedee;
   --color-primary-lightest: #d8f6f7;
-  --color-accent-dark: #e24305;
-  --color-accent-regular: #f7662d;
+  --color-accent-regular: #ee652b;
   --color-accent-light: #feba9d;
   --color-accent-lightest: #fceade;
   --color-accent-bright: #f6516f;
-  --color-accent-bright-dark: #e13d5b;
+  --color-accent-bright-dark: #e43555;
   --color-neutral-darkest: #061f23;
-  --color-neutral-dark: #394c50;
-  --color-neutral-regular-dark: #647376;
+  --color-neutral-dark: #4c5657;
+  --color-neutral-regular-dark: #6b7676;
   --color-neutral-regular: #838f91;
   --color-neutral-regular-light: #aab2b3;
   --color-neutral-light: #ccd1d1;
@@ -707,7 +706,7 @@ p {
   color: var(--color-primary-dark);
 }
 .link:hover::after {
-  translate: 10px -1px;
+  translate: 9px -1px;
   border-color: var(--color-primary-dark);
 }
 .link:active {
@@ -722,7 +721,7 @@ p {
 }
 
 .link--secondary {
-  color: var(--color-accent-bright);
+  color: var(--color-accent-regular);
   font-family: var(--typography-font-headings);
   font-size: 1.1875rem;
   line-height: 1;
@@ -730,13 +729,13 @@ p {
   text-decoration: none;
 }
 .link--secondary:visited {
-  color: var(--color-accent-bright);
+  color: var(--color-accent-regular);
 }
 .link--secondary::after {
   content: "";
   display: inline-block;
-  border-right: 3px solid var(--color-accent-bright);
-  border-bottom: 3px solid var(--color-accent-bright);
+  border-right: 3px solid var(--color-accent-regular);
+  border-bottom: 3px solid var(--color-accent-regular);
   width: 9px;
   height: 9px;
   rotate: -45deg;
@@ -748,7 +747,7 @@ p {
   color: var(--color-accent-bright-dark);
 }
 .link--secondary:hover::after {
-  translate: 10px -1px;
+  translate: 9px -1px;
   border-color: var(--color-accent-bright-dark);
 }
 .link--secondary:active {
@@ -789,7 +788,7 @@ p {
   color: var(--color-neutral-light);
 }
 .link--reverse:hover::after {
-  translate: 10px -1px;
+  translate: 9px -1px;
   border-color: var(--color-neutral-light);
 }
 .link--reverse:active {
@@ -834,18 +833,19 @@ p {
   font-family: var(--typography-font-headings);
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.125rem;
   letter-spacing: 0.04em;
-  color: var(--color-primary-dark);
+  color: var(--color-neutral-regular-dark);
   margin-block-start: 0.75rem;
 }
 
 .card__heading {
   margin-block-start: 0.75rem;
+  margin-block-end: 0.25rem;
 }
 .card__heading h2,
 .card__heading h3 {
-  font-size: 1.953rem;
+  font-size: 2rem;
 }
 
 .card__link {

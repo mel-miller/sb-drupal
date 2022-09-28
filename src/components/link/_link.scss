@@ -27,7 +27,7 @@
 		color: $hover;
 
 		&::after {
-			translate: 10px -1px;
+			translate: 9px -1px;
 			border-color: $hover;
 		}
 	}
@@ -55,7 +55,7 @@
 
 .link--secondary {
 	@include link(
-		var(--color-accent-bright),
+		var(--color-accent-regular),
 		var(--color-accent-bright-dark),
 		var(--color-neutral-darkest)
 	);
