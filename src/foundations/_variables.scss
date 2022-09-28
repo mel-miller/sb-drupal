@@ -22,9 +22,9 @@
 	--color-neutral-dark: #394c50;
 	--color-neutral-regular-dark: #647376;
 	--color-neutral-regular: #838f91;
-	--color-neutral-regular-light: #939d9f;
-	--color-neutral-light: #dbdedf;
-	--color-neutral-lightest: #e8eaeb;
+	--color-neutral-regular-light: #aab2b3;
+	--color-neutral-light: #ccd1d1;
+	--color-neutral-lightest: #edefef;
 	--color-neutral-white: #ffffff;
 	--color-opacity-clear: rgba(0, 0, 0, 0);
 	--color-opacity-black: rgba(0, 0, 0, 0.5);
@@ -32,7 +32,7 @@
 	// Functional colors.
 	--color-functional-focus: var(--color-accent-bright-dark);
 	--color-functional-visited: #630084;
-	--color-functional-disabled-background: var(--color-neutral-light);
+	--color-functional-disabled-background: var(--color-neutral-regular-light);
 	--color-functional-disabled-text-on-background: var(--color-neutral-lightest);
 	--color-functional-disabled-text: var(--color-neutral-regular);
 	--color-functional-disabled-input: var(--color-neutral-light);

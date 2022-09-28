@@ -1,10 +1,8 @@
-.button {
-	background-color: var(--button--background-color, var(--color-primary-dark));
-	color: var(--button--text-color, var(--color-neutral-white));
-	border: 2px solid var(--button--border-color, var(--color-primary-dark));
+@mixin button($background, $text, $border, $reverse: false) {
+	background-color: $background;
+	color: $text;
+	border: 2px solid $border;
 	border-radius: 0.6rem;
-	outline: 2px solid var(--button--outline-color, var(--color-opacity-clear));
-	outline-offset: 3px;
 	padding: 0.75rem 1.25rem;
 	font-family: var(--typography-font-buttons);
 	font-size: 1rem;
@@ -13,36 +11,68 @@
 	letter-spacing: 0.02em;
 
 	&:hover {
-		--button--background-color: var(--color-neutral-dark);
-		--button--border-color: var(--color-neutral-dark);
-		--button--text-color: var(--color-neutral-white);
+		@if $reverse == true {
+			background-color: var(--color-neutral-white);
+			border-color: var(--color-neutral-white);
+			color: var(--color-neutral-dark);
+		} @else {
+			background-color: var(--color-neutral-dark);
+			border-color: var(--color-neutral-dark);
+			color: var(--color-neutral-white);
+		}
 	}
 
 	&:focus-visible {
-		--button--outline-color: var(--color-functional-focus);
+		outline-color: 2px solid $border;
+		outline-offset: 3px;
 	}
 
 	&:active {
-		--button--background-color: var(--color-neutral-darkest);
-		--button--border-color: var(--color-neutral-darkest);
-		--button--text-color: var(--color-neutral-white);
+		@if $reverse == true {
+			background-color: var(--color-neutral-lightest);
+			border-color: var(--color-neutral-lightest);
+			color: var(--color-neutral-dark);
+		} @else {
+			background-color: var(--color-neutral-darkest);
+			border-color: var(--color-neutral-darkest);
+			color: var(--color-neutral-white);
+		}
 	}
 
 	&[disabled],
 	&[aria-disabled='true'] {
 		cursor: not-allowed;
-		--button--background-color: var(--color-functional-disabled-background);
-		--button--border-color: var(--color-functional-disabled-background);
-		--button--text-color: var(--color-functional-disabled-text-on-background);
+		background-color: var(--color-functional-disabled-background);
+		border-color: var(--color-functional-disabled-background);
+		color: var(--color-functional-disabled-text-on-background);
 
 		&:hover {
-			--button--text-color: var(--color-functional-disabled-text-on-background);
+			color: var(--color-functional-disabled-text-on-background);
 		}
 	}
 }
 
+.button {
+	@include button(
+		var(--color-primary-dark),
+		var(--color-neutral-white),
+		var(--color-primary-dark)
+	);
+}
+
 .button--secondary {
-	--button--background-color: var(--color-neutral-white);
-	--button--text-color: var(--color-primary-dark);
-	--button--border-color: var(--color-primary-dark);
+	@include button(
+		var(--color-neutral-white),
+		var(--color-primary-dark),
+		var(--color-primary-dark)
+	);
+}
+
+.button--reverse {
+	@include button(
+		var(--color-opacity-clear),
+		var(--color-neutral-white),
+		var(--color-neutral-white),
+		true
+	);
 }
