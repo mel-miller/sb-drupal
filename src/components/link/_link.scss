@@ -1,7 +1,7 @@
 @mixin link($color, $hover, $active) {
 	color: $color;
 	font-family: var(--typography-font-headings);
-	font-size: 1.25rem;
+	font-size: 1.1875rem;
 	line-height: 1;
 	font-weight: 700;
 	text-decoration: none;
@@ -18,7 +18,7 @@
 		width: 9px;
 		height: 9px;
 		rotate: -45deg;
-		translate: 8px -1px;
+		translate: 7px -1px;
 		transition: 0.05s ease;
 	}
 
@@ -27,7 +27,7 @@
 		color: $hover;
 
 		&::after {
-			translate: 12px -1px;
+			translate: 10px -1px;
 			border-color: $hover;
 		}
 	}

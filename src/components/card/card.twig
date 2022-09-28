@@ -1,0 +1,44 @@
+<{{ element_type|default('div') }} class="card">
+
+  {% if image.src and link %}
+  <div class="card__image">
+    <a href="{{ link.url }}" tabindex="-1" aria-hidden="true">
+      <img src="{{ image.src }}" alt="{{ image.alt }}"/>
+    </a>
+  </div>
+  {% endif %}
+
+  {% if kicker_text %}
+  <div class="card__kicker">
+    {{ kicker_text }}
+  </div>
+  {% endif %} 
+
+    {% if heading_text and heading_level %}
+    <div class="card__heading">
+      <{{ heading_level }}>{{ heading_text }}</{{ heading_level }}>
+    </div>
+    {% endif %}
+
+    {% if body_text %}
+    <div class="card__bodytext">
+      {# Wrap in paragraph tag if not Drupal site #}
+      {% if not db_is_active %}
+        <p>{{ body_text }}</p>
+      {% else %}
+        {{ body_text }}
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {% if link  %}
+    <div class="card__link">
+      {% include "../link/link.twig" with {
+        variant: 'secondary',
+        url: link.url,
+        text: link.text
+      }%}
+    </div>
+    {% endif %}
+
+</{{ element_type|default('div') }}>
