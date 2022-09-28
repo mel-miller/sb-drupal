@@ -51,7 +51,7 @@ The block type should be created with the following fields:
 <div{{ attributes.addClass(classes) }}>
   {{ title_suffix }}
 
-  {% include "@pds/card/card.twig" with {
+  {% include "@namespace/card/card.twig" with {
     element_type: 'div',
     kicker_text: content.field_kicker|render|striptags|trim,
     heading_text: label,

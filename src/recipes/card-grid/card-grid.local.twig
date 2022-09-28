@@ -1,0 +1,15 @@
+<div class="grid__container">
+	{% if cards %}
+		{% for card in cards %}
+			{% include '../../components/card/card.twig' with {
+				image: card.image,
+				kicker_text: card.kicker_text,
+				heading_level: card.heading_level,
+				heading_text: card.heading_text,
+				body_text: card.body_text,
+				link: card.link,
+				extra_classes: 'grid__item grid__item--sm-4 grid__item--md-4'
+			} %}
+		{% endfor %}
+	{% endif %}
+</div>

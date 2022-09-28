@@ -44,6 +44,10 @@ export default {
 		link: {
 			description: 'Card CTA.',
 		},
+		extra_classes: {
+			description:
+				'Used to add extra classes to the parent `card` element. Useful when building a grid of cards.',
+		},
 	},
 	args: {
 		element_type: 'div',
@@ -57,6 +61,7 @@ export default {
 		body_text:
 			'Body text of content, or content summary. Helvetica kombucha shabby chic, mustache put a bird on it. Green juice twee iceland cardigan retro art party lomo intelligentsia.',
 		link: { text: 'Read More', url: '#' },
+		extra_classes: '',
 	},
 }
 
@@ -68,6 +73,7 @@ const Template = ({
 	heading_level,
 	body_text,
 	link,
+	extra_classes,
 }) =>
 	TwigCard({
 		element_type,
@@ -77,6 +83,7 @@ const Template = ({
 		heading_level,
 		body_text,
 		link,
+		extra_classes,
 	})
 
 export const DefaultCard = Template.bind({})
