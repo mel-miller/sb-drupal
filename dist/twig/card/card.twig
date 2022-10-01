@@ -1,10 +1,14 @@
-<{{ element_type|default('div') }} class="card">
+<{{ element_type|default('div') }} class="card{% if not image.src %} card--without-image{% endif %}{% if extra_classes %} {{ extra_classes }}{% endif %}">
 
-  {% if image.src and link %}
+  {% if image.src %}
   <div class="card__image">
+    {% if link %}
     <a href="{{ link.url }}" tabindex="-1" aria-hidden="true">
       <img src="{{ image.src }}" alt="{{ image.alt }}"/>
     </a>
+    {% else %}
+    <img src="{{ image.src }}" alt="{{ image.alt }}"/>
+    {% endif %}
   </div>
   {% endif %}
 
@@ -34,8 +38,9 @@
     {% if link  %}
     <div class="card__link">
       {% include "@sb/link/link.twig" with {
+        variant: 'secondary',
+        text: link.text,
         url: link.url,
-        text: link.text
       }%}
     </div>
     {% endif %}
