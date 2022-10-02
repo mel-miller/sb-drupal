@@ -26,11 +26,6 @@ config.components = {
 	js: 'src/components/**/*.behaviors.js',
 	twig: ['src/components/**/*.twig', '!src/components/**/*.local.twig'],
 }
-config.recipes = {
-	scss: 'src/recipes/**/_*.scss',
-	js: 'src/recipes/**/*.behaviors.js',
-	twig: ['src/recipes/**/*.twig', '!src/recipes/**/*.local.twig'],
-}
 config.stylesMain = 'src/main.scss'
 config.public = {
 	css: 'public/css',
@@ -76,7 +71,6 @@ const watchStyles = () => {
 			config.foundations.scss,
 			config.utilities.scss,
 			config.components.scss,
-			config.recipes.scss,
 		],
 		compileStyles
 	)
@@ -84,12 +78,7 @@ const watchStyles = () => {
 
 // Compile js to a single file and minify.
 const compileJs = (done) => {
-	src([
-		config.foundations.js,
-		config.utilities.js,
-		config.components.js,
-		config.recipes.js,
-	])
+	src([config.foundations.js, config.utilities.js, config.components.js])
 		.pipe(concat('main.js'))
 		.pipe(dest(config.dist.js))
 		.pipe(
@@ -106,12 +95,7 @@ const compileJs = (done) => {
 // Watch for js changes + recompile.
 const watchJs = () => {
 	watch(
-		[
-			config.foundations.js,
-			config.utilities.js,
-			config.components.js,
-			config.recipes.js,
-		],
+		[config.foundations.js, config.utilities.js, config.components.js],
 		compileJs
 	)
 }
