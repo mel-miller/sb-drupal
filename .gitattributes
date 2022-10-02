@@ -1,0 +1,10 @@
+# Ignored from Composer package.
+.storybook            export-ignore
+public                export-ignore
+src                   export-ignore
+gulpfile.js           export-ignore
+package.json          export-ignore
+package-lock.json     export-ignore
+.gitignore            export-ignore
+.gitattributes        export-ignore
+.github               export-ignore
