@@ -53,6 +53,7 @@
 		"prettier": "^2.7.1",
 		"prettier-plugin-twig-melody": "^0.4.6",
 		"sass": "^1.54.9",
+		"storybook-source-code-addon": "^1.2.0",
 		"twig": "^1.15.4",
 		"twig-loader": "^0.5.5"
 	}
