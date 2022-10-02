@@ -1,5 +1,5 @@
 {
-	"name": "melissamiller/sb-drupal",
+	"name": "mel-miller/sb-drupal",
 	"description": "A Storybook implementation for Drupal.",
 	"type": "design-system",
 	"require": {
