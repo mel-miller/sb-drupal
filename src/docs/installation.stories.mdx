@@ -1,0 +1,167 @@
+<Meta title="Documentation/Installation" />
+
+# Drupal Installation
+
+<h2 class="subtitle">
+	This toolkit is designed to be consumed directly within a custom Drupal theme
+	via Composer
+</h2>
+
+## Composer configuration
+
+Instructions will vary based on how you are managing your theme — either as part of your site's repository, or required from a separate repository. Both methods are outlined below.
+
+<hr />
+
+### Method 1: The theme code is directly integrated within the site's repo
+
+When using Method 1, the following Composer commands should be run from the project's root directory.
+
+#### Add the repository information for the sb-drupal package
+
+Add the following to the site's `composer.json` "repositories" section.
+
+```
+{
+  "type": "vcs",
+  "url": "https://github.com/mel-miller/sb-drupal.git"
+}
+```
+
+#### Require Drupal [Components!](https://www.drupal.org/project/components) module
+
+This will allow us to register a Twig namespace and directly import PDS twig templates into the theme templates.
+
+```
+composer require drupal/components
+```
+
+#### Require [composer-installers-extender](https://packagist.org/packages/oomphinc/composer-installers-extender) package
+
+This plugin extends `composer/installers` and will allow us to customize install paths for custom package types.
+
+```
+composer require oomphinc/composer-installers-extender
+```
+
+#### Configure the "extra" section to accept "design-system" as a package type
+
+This will install the `sb-drupal` package as its own subdirectory within the theme directory.
+
+```
+"extra": {
+  "installer-types": [
+    "design-system"
+  ],
+  "installer-paths": {
+    "web/themes/custom/THEMENAME/{$name}": [
+      "type:design-system"
+    ]
+  }
+}
+
+```
+
+#### Require [sb-drupal](https://github.com/mel-miller/sb-drupal) as a dev dependency
+
+This package contains all assets necessary to use these components within a Drupal theme. This directory should be committed along with the rest of your theme files.
+
+```
+composer require --dev mel-miller/sb-drupal
+
+```
+
+<hr />
+
+### Method 2: The theme is required via its own separate repository
+
+These instructions will walk you through setting up a `composer.json` file for a theme with its own repository. When using Method 2, the following Composer commands should be run from within the theme's directory.
+
+#### Configure "repositories" section
+
+This will allow us to require any packages hosted on drupal.org, as well as requiring the `mel-miller/sb-drupal` package.
+
+```
+"repositories": [
+  {
+    "type": "composer",
+    "url": "https://packages.drupal.org/8"
+  },
+  {
+    "type": "vcs",
+    "url": "https://github.com/mel-miller/sb-drupal"
+  }
+]
+
+```
+
+#### Require Drupal [Components!](https://www.drupal.org/project/components) module
+
+This will allow us to register a Twig namespace and directly import PDS twig templates into the theme templates.
+
+```
+composer require drupal/components
+```
+
+#### Require [composer-installers-extender](https://packagist.org/packages/oomphinc/composer-installers-extender) package
+
+This plugin extends `composer/installers` and will allow us to customize install paths for custom package types.
+
+```
+composer require oomphinc/composer-installers-extender
+```
+
+#### Configure the "extra" section to accept "design-system" as a package type
+
+This will install the `sb-drupal` package as its own subdirectory within the theme directory.
+
+```
+"extra": {
+  "installer-types": [
+    "design-system"
+  ],
+  "installer-paths": {
+    "web/themes/contrib/THEMENAME/{$name}": [
+      "type:design-system"
+    ]
+  }
+}
+
+```
+
+#### Require [sb-drupal](https://github.com/mel-miller/sb-drupal) as a dev dependency
+
+This package contains all assets necessary to use these components within a Drupal theme. This directory should be committed along with the rest of your theme files.
+
+```
+composer require --dev mel-miller/sb-drupal
+
+```
+
+#### Add post-install and post-update scripts
+
+This will keep your theme directory clean from unnecessary Drupal core files when running Composer commands from within the theme directory.
+
+```
+"scripts": {
+  "post-install-cmd": [
+    "rm -rf core/",
+    "rm -rf modules/",
+    "rm -rf profiles/",
+    "rm -rf themes/",
+    "rm -rf vendor/",
+    "rm -rf web/",
+    "rm -rf .gitattributes"
+  ],
+    "post-update-cmd": [
+    "rm -rf core/",
+    "rm -rf modules/",
+    "rm -rf profiles/",
+    "rm -rf themes/",
+    "rm -rf vendor/",
+    "rm -rf web/",
+    "rm -rf .gitattributes"
+  ]
+}
+
+```
