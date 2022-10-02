@@ -1,7 +1,7 @@
 import { addDecorator } from '@storybook/html'
 import { useEffect } from '@storybook/client-api'
 import './_drupal.js'
-import '../public/css/main.css'
+import '../public/css/sb-main.css'
 import '../public/css/storybook.local.css'
 
 // Configure for use with Twig.

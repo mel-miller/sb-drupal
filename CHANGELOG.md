@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-- Namespace component classes with `sb`.
+- Namespace component and main classes with `sb`.
 
 ## [v0.1.1] - 2022-10-02
 

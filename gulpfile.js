@@ -26,7 +26,7 @@ config.components = {
 	js: 'src/components/**/*.behaviors.js',
 	twig: ['src/components/**/*.twig', '!src/components/**/*.local.twig'],
 }
-config.stylesMain = 'src/main.scss'
+config.stylesMain = 'src/sb-main.scss'
 config.public = {
 	css: 'public/css',
 	img: 'public/img/*',
@@ -79,7 +79,7 @@ const watchStyles = () => {
 // Compile js to a single file and minify.
 const compileJs = (done) => {
 	src([config.foundations.js, config.utilities.js, config.components.js])
-		.pipe(concat('main.js'))
+		.pipe(concat('sb-main.js'))
 		.pipe(dest(config.dist.js))
 		.pipe(
 			minify({
