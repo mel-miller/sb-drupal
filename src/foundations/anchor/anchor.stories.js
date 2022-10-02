@@ -1,15 +1,9 @@
 import TwigAnchor from './anchor.local.twig'
-import AnchorDocs from '!!raw-loader!./anchor.docs.mdx'
 
 export default {
 	title: 'Foundations/Anchor',
 	parameters: {
 		componentSubtitle: 'HTML anchor element',
-		docs: {
-			description: {
-				component: AnchorDocs,
-			},
-		},
 	},
 	argTypes: {
 		href: {
