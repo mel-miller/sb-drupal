@@ -4,7 +4,7 @@ import CardGridDocs from '!!raw-loader!./card-grid.docs.mdx'
 export default {
 	title: 'Recipes/Card Grid',
 	parameters: {
-		componentSubtitle: '',
+		componentSubtitle: 'An example of how to implement a grid of cards',
 		docs: {
 			description: {
 				component: CardGridDocs,
