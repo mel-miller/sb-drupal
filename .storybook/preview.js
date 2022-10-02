@@ -53,6 +53,7 @@ export const parameters = {
 		storySort: {
 			order: [
 				'Documentation',
+				['Introduction', 'Installation', 'Theme Setup', 'Theme Usage', '*'],
 				'Foundations',
 				'Utilities',
 				'Components',
