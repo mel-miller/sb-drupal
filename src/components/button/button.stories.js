@@ -1,10 +1,15 @@
 import TwigButton from './button.twig'
+import ButtonSource from '!!raw-loader!./button.twig'
 import ButtonDocs from '!!raw-loader!./button.docs.mdx'
 
 export default {
 	title: 'Components/Button',
 	parameters: {
 		componentSubtitle: 'An interactive element used to initiate an action',
+		componentSource: {
+			code: ButtonSource,
+			language: 'twig',
+		},
 		docs: {
 			description: {
 				component: ButtonDocs,

@@ -1,4 +1,5 @@
 import TwigLink from './link.twig'
+import LinkSource from '!!raw-loader!./link.twig'
 import LinkDocs from '!!raw-loader!./link.docs.mdx'
 
 export default {
@@ -6,6 +7,10 @@ export default {
 	parameters: {
 		componentSubtitle:
 			'An interactive element used to navigate to another location',
+		componentSource: {
+			code: LinkSource,
+			language: 'twig',
+		},
 		docs: {
 			description: {
 				component: LinkDocs,

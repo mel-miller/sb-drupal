@@ -1,4 +1,5 @@
 import TwigCard from './card.twig'
+import CardSource from '!!raw-loader!./card.twig'
 import CardDocs from '!!raw-loader!./card.docs.mdx'
 
 export default {
@@ -6,6 +7,10 @@ export default {
 	parameters: {
 		componentSubtitle:
 			'A container to group related information, often used as a teaser',
+		componentSource: {
+			code: CardSource,
+			language: 'twig',
+		},
 		docs: {
 			description: {
 				component: CardDocs,
