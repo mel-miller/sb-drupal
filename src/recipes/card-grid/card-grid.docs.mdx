@@ -14,7 +14,7 @@ The article content type contains the following fields: image, category, and bod
 Create `views-view-unformatted--[view-machine-name].html.twig` with only the following code.
 
 ```
-<div class="grid__container">
+<div class="sb-grid">
 {% for row in rows %}
   {{- row.content -}}
 {% endfor %}
@@ -49,7 +49,7 @@ Create `node--[content-type-machine-name]--teaser.html.twig` with only the follo
   heading_text: label,
   heading_level: 'h3',
   body_text: content.field_body.0,
-  extra_classes: 'grid__item grid__item--sm-4 grid__item--md-4'
+  extra_classes: 'sb-sb-grid__item sb-sb-grid__item--sm-4 sb-sb-grid__item--md-4'
 }%}
 
 

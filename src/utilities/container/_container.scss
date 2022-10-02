@@ -1,7 +1,7 @@
 @use '../../foundations/_variables.scss' as *;
 @use '../breakpoints/_breakpoints.scss' as *;
 
-.container {
+.sb-container {
 	max-width: $container-max-width;
 	padding-inline-start: $container-padding-sm;
 	padding-inline-end: $container-padding-sm;

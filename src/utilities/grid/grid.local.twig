@@ -1,5 +1,5 @@
-<div class="grid__container">
+<div class="sb-grid">
 {% for item in items %}
-  <div class="grid__item grid__item--sm-{{ item.sm }} grid__item--md-{{ item.md }}{% if item.lg %} grid__item--lg-{{ item.lg }}{% endif %}" style="background:#eee; padding:1rem; text-align:center;">Item {{ loop.index }}</div>
+  <div class="sb-grid__item sb-grid__item--sm-{{ item.sm }} sb-grid__item--md-{{ item.md }}{% if item.lg %} sb-grid__item--lg-{{ item.lg }}{% endif %}" style="background:#eee; padding:1rem; text-align:center;">Item {{ loop.index }}</div>
 {% endfor %}
 </div>

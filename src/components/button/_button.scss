@@ -52,7 +52,7 @@
 	}
 }
 
-.button {
+.sb-button {
 	@include button(
 		var(--color-primary-dark),
 		var(--color-neutral-white),
@@ -60,7 +60,7 @@
 	);
 }
 
-.button--secondary {
+.sb-button--secondary {
 	@include button(
 		var(--color-neutral-white),
 		var(--color-primary-dark),
@@ -68,7 +68,7 @@
 	);
 }
 
-.button--reverse {
+.sb-button--reverse {
 	@include button(
 		var(--color-opacity-clear),
 		var(--color-neutral-white),

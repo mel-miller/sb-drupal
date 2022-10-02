@@ -1,4 +1,4 @@
-<div class="grid__container">
+<div class="sb-grid">
 	{% if cards %}
 		{% for card in cards %}
 			{% include '../../components/card/card.twig' with {
@@ -8,7 +8,7 @@
 				heading_text: card.heading_text,
 				body_text: card.body_text,
 				link: card.link,
-				extra_classes: 'grid__item grid__item--sm-4 grid__item--md-4'
+				extra_classes: 'sb-grid__item sb-grid__item--sm-4 sb-grid__item--md-4'
 			} %}
 		{% endfor %}
 	{% endif %}

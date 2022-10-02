@@ -45,7 +45,7 @@
 	}
 }
 
-.link {
+.sb-link {
 	@include link(
 		var(--color-primary-regular),
 		var(--color-primary-dark),
@@ -53,7 +53,7 @@
 	);
 }
 
-.link--secondary {
+.sb-link--secondary {
 	@include link(
 		var(--color-accent-regular),
 		var(--color-accent-bright-dark),
@@ -61,7 +61,7 @@
 	);
 }
 
-.link--reverse {
+.sb-link--reverse {
 	@include link(
 		var(--color-neutral-white),
 		var(--color-neutral-light),
