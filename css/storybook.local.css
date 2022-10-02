@@ -1,0 +1,10 @@
+/* Replicates the sbdocs subtitle.  */
+h2.subtitle {
+	font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 20px;
+	line-height: 28px;
+	font-weight: 400;
+	color: rgba(51, 51, 51, 0.75);
+	border: none;
+	margin-bottom: 24px;
+}
