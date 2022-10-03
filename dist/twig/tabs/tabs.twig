@@ -11,12 +11,6 @@
     {% set panelVisibility = (isTabSelected) ? '' : 'hidden="hidden"' %}
     <button id="{{ tabId }}" {% if tab.disabled -%} aria-disabled="true" {% endif -%} class="sb-tabs__tab" role="tab" aria-selected="{{ isTabSelected }}" aria-controls="{{ panelId }}" {{ tabTabIndex }}>
       <div class="sb-tabs__tab-text">
-        {% if tab.icon %}
-          {% include "@sb/icon/icon.twig" with {
-            iconName: tab.icon,
-            cssClass: 'sb-tabs__icon'
-          }%}
-        {% endif %}
         {{ tab.tabLabel }}
       </div>
     </button>
@@ -25,15 +19,8 @@
       <div id="{{ panelId }}" class="sb-tabs__panel" role="tabpanel" aria-labelledby="{{ tabId }}" {{ panelVisibility }}>
         <button id="{{ tabId }}_trigger" class="sb-tabs__trigger" {% if tab.disabled -%} aria-disabled="true" {% endif -%} role="tab" aria-selected="{{ isTabSelected }}" aria-controls="{{ panelId }}" {{ tabTabIndex }}>
           <span>
-            {% if tab.icon %}
-              {% include "@sb/icon/icon.twig" with {
-                iconName: tab.icon,
-                cssClass: 'sb-tabs__icon'
-              }%}
-            {% endif %}
             {{ tab.tabLabel }}
           </span>
-          
           {% include "@sb/icon/icon.twig" with {
             iconName: 'symbol-plus',
             cssClass: 'sb-tab__icon sb-tab__icon-closed'

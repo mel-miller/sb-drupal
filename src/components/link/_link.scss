@@ -1,4 +1,4 @@
-@mixin link($color, $hover, $active) {
+@mixin link($color, $hover, $active, $focus) {
 	color: $color;
 	font-family: var(--typography-font-headings);
 	font-size: 1.1875rem;
@@ -40,8 +40,11 @@
 	}
 
 	&:focus-visible {
-		outline: 2px solid $active;
-		outline-offset: 4px;
+		outline: none;
+		span {
+			outline: 2px solid $focus;
+			outline-offset: 4px;
+		}
 	}
 }
 
@@ -49,7 +52,8 @@
 	@include link(
 		var(--color-primary-regular),
 		var(--color-primary-dark),
-		var(--color-neutral-dark)
+		var(--color-neutral-dark),
+		var(--color-functional-focus)
 	);
 }
 
@@ -57,7 +61,8 @@
 	@include link(
 		var(--color-accent-regular),
 		var(--color-accent-bright-dark),
-		var(--color-neutral-darkest)
+		var(--color-neutral-darkest),
+		var(--color-functional-focus)
 	);
 }
 
@@ -65,6 +70,7 @@
 	@include link(
 		var(--color-neutral-white),
 		var(--color-neutral-light),
-		var(--color-neutral-darkest)
+		var(--color-neutral-darkest),
+		var(--color-functional-focus-reverse)
 	);
 }

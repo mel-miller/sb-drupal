@@ -23,8 +23,12 @@
 	}
 
 	&:focus-visible {
-		outline-color: 2px solid $border;
 		outline-offset: 3px;
+		@if $reverse == true {
+			outline: 2px solid var(--color-functional-focus-reverse);
+		} @else {
+			outline: 2px solid var(--color-functional-focus);
+		}
 	}
 
 	&:active {

@@ -1,0 +1,10 @@
+<div class="sb-grid">
+	{% for color in colors %}
+		<div class="sb-grid__item sb-grid__item--sm-2 sb-grid__item--md-4 sb-grid__item--lg-3">
+			<div style="background:var(--{{ color }}); border: 1px solid #ddd;padding: 2rem"></div>
+			<div style="font-family:sans-serif; font-size: 0.875rem; line-height: 1.2; text-align:center; margin-top: 8px;">
+				{{ color }}
+			</div>
+		</div>
+	{% endfor %}
+</div>

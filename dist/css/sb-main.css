@@ -332,9 +332,14 @@ template {
   --color-neutral-lightest: #edefef;
   --color-neutral-white: #ffffff;
   --color-opacity-clear: rgba(0, 0, 0, 0);
-  --color-opacity-black: rgba(0, 0, 0, 0.5);
-  --color-functional-focus: var(--color-accent-bright-dark);
+  --color-opacity-dark: rgba(6, 31, 35, 0.5);
+  --color-status-error-dark: #881330;
+  --color-status-error-regular: #c51b3a;
+  --color-status-error-light: #f5d5d5;
+  --color-functional-focus: #004fe0;
+  --color-functional-focus-reverse: #d1e1fa;
   --color-functional-visited: #630084;
+  --color-functional-text: var(--color-neutral-darkest);
   --color-functional-disabled-background: var(--color-neutral-regular-light);
   --color-functional-disabled-text-on-background: var(--color-neutral-lightest);
   --color-functional-disabled-text: var(--color-neutral-regular);
@@ -589,8 +594,8 @@ p {
   color: var(--color-neutral-white);
 }
 .sb-button:focus-visible {
-  outline-color: 2px solid var(--color-primary-dark);
   outline-offset: 3px;
+  outline: 2px solid var(--color-functional-focus);
 }
 .sb-button:active {
   background-color: var(--color-neutral-darkest);
@@ -625,8 +630,8 @@ p {
   color: var(--color-neutral-white);
 }
 .sb-button--secondary:focus-visible {
-  outline-color: 2px solid var(--color-primary-dark);
   outline-offset: 3px;
+  outline: 2px solid var(--color-functional-focus);
 }
 .sb-button--secondary:active {
   background-color: var(--color-neutral-darkest);
@@ -661,8 +666,8 @@ p {
   color: var(--color-neutral-dark);
 }
 .sb-button--reverse:focus-visible {
-  outline-color: 2px solid var(--color-neutral-white);
   outline-offset: 3px;
+  outline: 2px solid var(--color-functional-focus-reverse);
 }
 .sb-button--reverse:active {
   background-color: var(--color-neutral-lightest);
@@ -772,7 +777,7 @@ p {
   fill: var(--sb-icon--fill-color);
 }
 .sb-icon.sb-icon--symbol-info-error {
-  --sb-icon--fill-color: var(--color-accent-bright-dark);
+  --sb-icon--fill-color: var(--color-status-error-regular);
   transform: rotate(180deg);
 }
 .sb-icon.sb-icon--symbol-search {
@@ -820,7 +825,10 @@ p {
   border-color: var(--color-neutral-dark);
 }
 .sb-link:focus-visible {
-  outline: 2px solid var(--color-neutral-dark);
+  outline: none;
+}
+.sb-link:focus-visible span {
+  outline: 2px solid var(--color-functional-focus);
   outline-offset: 4px;
 }
 
@@ -861,7 +869,10 @@ p {
   border-color: var(--color-neutral-darkest);
 }
 .sb-link--secondary:focus-visible {
-  outline: 2px solid var(--color-neutral-darkest);
+  outline: none;
+}
+.sb-link--secondary:focus-visible span {
+  outline: 2px solid var(--color-functional-focus);
   outline-offset: 4px;
 }
 
@@ -902,7 +913,10 @@ p {
   border-color: var(--color-neutral-darkest);
 }
 .sb-link--reverse:focus-visible {
-  outline: 2px solid var(--color-neutral-darkest);
+  outline: none;
+}
+.sb-link--reverse:focus-visible span {
+  outline: 2px solid var(--color-functional-focus-reverse);
   outline-offset: 4px;
 }
 

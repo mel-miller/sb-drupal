@@ -1,0 +1,15 @@
+The `sb-main.min.css` stylesheet that has been integrated into your theme includes the styles necessary for each component in this toolkit.
+
+However, if you are building additional components and need access to global style variables, you may access them via CSS custom properties.
+
+## Using Color Variables
+
+CSS custom properties are utilized by wrapping the property in a `var()` function and prepending a `--` like so:
+
+```
+.sample-class {
+  color: var(--color-primary-regular);
+}
+```
+
+### Brand Primary Colors
