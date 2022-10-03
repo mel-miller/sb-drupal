@@ -119,7 +119,7 @@ If a component is in one of these sections, it should have a "local" Twig file â
 
 #### Component generator
 
-A [customized component generator](https://github.com/mel-miller/generator-sb-drupal) is included in this project. Instructions for use are included in the generator's README document.
+A [customized component generator](https://www.npmjs.com/package/generator-sb-drupal) is included in this project. Instructions for use are included in the generator's README document.
 
 ### Update the Changelog
 
