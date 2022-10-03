@@ -1,0 +1,51 @@
+<Meta title="Documentation/Drupal-Ready Components" />
+
+# Creating Drupal-Ready Components
+
+<h2 class="subtitle">
+	Tips to build components that will easily integrate into your Drupal theme
+</h2>
+
+In addition to providing thorough documentation for each component you write — such as sample code for templates and field-mapping instructions for blocks or other entities — there are additional methods to enable smooth consumption of components into your Drupal theme.
+
+The following tips center around the concept of writing components that are designed for Drupal, but will render accurately in Storybook.
+
+## 1. Create sample data as objects when necessary to match Drupal
+
+For field types that you know are objects within Drupal (links, images, etc...), you should replicate that object shape in your Storybook sample data (args) as much as possible.
+
+```js
+args: {
+  image: {
+    src: 'demo-images/placeimg_360_240_nature.jpeg',
+    alt: 'Beach at sunset.',
+  },
+},
+
+```
+
+## 2. Attribute Simulation
+
+TBD
+
+## 3. Conditionally render for Storybook
+
+There are instances where you may need to render something differently in Storybook than in Drupal. The `db_is_active` variable can be used to achieve this as this variable is not natively set within Storybook.
+
+A potential use case is when you know you're dealing with a formatted long text field in Drupal, but you don't want to have to recreate that within your Stroybook sample data. You can wrap your sample data in a `<p>` tag within Storybook, but let Drupal handle the actual formatted text when rendered within the site.
+
+There's an example of this technique within the Card component.
+
+```
+{% if body_text %}
+<div class="sb-card__bodytext">
+  {# Wrap in paragraph tag if not Drupal site #}
+  {% if not db_is_active %}
+    <p>{{ body_text }}</p>
+  {% else %}
+    {{ body_text }}
+  {% endif %}
+</div>
+{% endif %}
+
+```
