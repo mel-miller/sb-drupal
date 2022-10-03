@@ -1,0 +1,58 @@
+## Purpose
+
+- Icons should be used to show a small image or logo.
+- The functional icons in this library, such as "action-add", should be contained in a button with proper ARIA and accessibility attributes.
+
+## Icons Available
+
+The icons available can be previewed using the Storybook controls below.
+
+The following icons are available:
+
+- brands-twitter
+- brands-facebook
+- brands-linkedin
+- brands-instagram
+- brands-youtube
+- action-add
+- action-share
+- arrow-down
+- arrow-up
+- arrow-left
+- arrow-right
+- symbol-checkmark
+- symbol-checkmark-circle
+- symbol-info
+- symbol-info-error
+- symbol-minus
+- symbol-plus
+- symbol-search
+- symbol-stack-menu
+- symbol-x-mark
+
+## Icon Classes
+
+The icon base class is `sb-icon`. All icons should include this class followed by any necessary size and/or variant modifier classes. The base class will default to a size medium icon, so it is not necessary to explicitly add those modifiers.
+
+Each icon should also include a `sb-icon--{icon name}` class so that any icon specific styles are automatically applied. The Twig template/component will handle this automatically for you.
+
+Example: Using the `symbol-search` icon would require the class of `sb-icon--symbol-search` in addition to `sb-icon`.
+
+The following size modifier classes are available:
+
+- `sb-icon--small`
+- `sb-icon--medium` (default)
+- `sb-icon--large`
+- `sb-icon--x-large`
+
+<br />
+
+### Twig Template/Component Usage
+
+The example below illustrates how to use the included Twig template/component to display the search symbol icon.
+
+```
+{% include "@sb/icon/icon.twig" with {
+    iconName: 'symbol-search'
+}%}
+```
