@@ -1,7 +1,33 @@
-<!-- ## Purpose
+## Purpose
+
+Tabs are used to organize related content and fit more content into a smaller space. They allow the user to navigate between groups of information that appear within the same context.
 
 ## Usage
 
+It is recommended to use no more than five tabs in a group. This allows the user to easily understand the scope of the information presented to them. With more tabs, the information can become overwhelming.
+
+Keep tab labels short. Using a simple, concise label such as "Settings" or "Notifications" helps the user easily decide which tab contains the content they need. An icon may also be added to a tab and will be rendered before the tab label. All tabs should either have an icon or not, do not mix and match plain tabs and icon tabs.
+
+Tab panels are meant to be containers for other content and do not provide any additional styles except for container padding and a focus indicator.
+
+## Component Structure and Classes
+
+The Tabs component is contained within a div with the class `sb-tabs`.
+
+The group of tabs are wrapped in a `div` with the class `sb-tabs__tablist` and a role of `tablist`. Each individual tab is a `button` element with the class `sb-tabs__tab` and role of `tab`.
+
+All tab panels come after the tablist within the component's markup. Each panel is a `div` with the class `sb-tabs__panel` with the role `tabpanel`. Each tabpanel's visibility is controlled by the associated tab's aria-controls which references the tabpanel's id.
+
+**NOTE: This component requires PDS JavaScript to function.**
+
 ## Drupal Theme Implementation
 
-### Template Example -->
+There are several different methods that can be used to implement the tabs component into your theme based on context, desired content within tab panels, and desired content editing approach. Some possible options include:
+
+- Using a contrib module such as [Layout Builder Tabs Section](https://www.drupal.org/project/layout_builder_tabs) or [Layout Builder: Tabs and Accordion](https://www.drupal.org/project/lb_tabs) and overriding the provided theme templates to utilize the PDS recommended markup.
+- Building a custom Layout Builder section layout using the PDS recommended markup.
+- Building a custom block type that leverages the provided Twig template.
+- Manually within a page, node, or block template.
+
+**NOTE: Each tab/panel pair must have a unique id.**
+If using the provided Twig template, and haven't supplied this data, an id will be randomly generated and applied for you.
