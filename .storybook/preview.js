@@ -57,6 +57,7 @@ export const parameters = {
 				'Foundations',
 				'Utilities',
 				'Components',
+				['Icon', 'Button', 'Link', 'Card', 'Tabs', '*'],
 				'Recipes',
 			],
 		},
