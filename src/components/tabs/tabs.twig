@@ -1,0 +1,43 @@
+{% set panels = '' %}
+<div class="sb-tabs">
+  <div class="sb-tabs__tablist" role="tablist" aria-label="{{ ariaLabel }}">
+  {% for tab in tabs %}
+    {% set isTabSelected = (loop.first) ? true : false %}
+    {% set tabTabIndex = (isTabSelected) ? '' : 'tabindex="-1"' %}
+    {% set uniqueId = (tab.tabUid) ? tab.tabUid|raw : random() %}
+    {% set tabId = 'sb-tabs__tab--' ~ uniqueId %}
+    {% set panel = '' %}
+    {% set panelId = 'sb-tabs__panel--' ~ uniqueId %}
+    {% set panelVisibility = (isTabSelected) ? '' : 'hidden="hidden"' %}
+    <button id="{{ tabId }}" {% if tab.disabled -%} aria-disabled="true" {% endif -%} class="sb-tabs__tab" role="tab" aria-selected="{{ isTabSelected }}" aria-controls="{{ panelId }}" {{ tabTabIndex }}>
+      <div class="sb-tabs__tab-text">
+        {{ tab.tabLabel }}
+      </div>
+    </button>
+    {% set panel %}
+    {% if not tab.disabled %}
+      <div id="{{ panelId }}" class="sb-tabs__panel" role="tabpanel" aria-labelledby="{{ tabId }}" {{ panelVisibility }}>
+        <button id="{{ tabId }}_trigger" class="sb-tabs__trigger" {% if tab.disabled -%} aria-disabled="true" {% endif -%} role="tab" aria-selected="{{ isTabSelected }}" aria-controls="{{ panelId }}" {{ tabTabIndex }}>
+          <span>
+            {{ tab.tabLabel }}
+          </span>
+          {% include "../icon/icon.twig" with {
+            iconName: 'symbol-plus',
+            cssClass: 'sb-tab__icon sb-tab__icon-closed'
+          }%}
+          {% include "../icon/icon.twig" with {
+            iconName: 'symbol-minus',
+            cssClass: 'sb-tab__icon sb-tab__icon-opened'
+          }%}
+        </button>
+        <section class="sb-tabs__panel-content">
+          {{ tab.panelContent }}
+        </section>
+      </div>
+      {% endif %}
+    {% endset %}
+    {% set panels = panels ~ panel %}
+  {% endfor %}
+  </div>
+  {{ panels|raw }}
+</div>
