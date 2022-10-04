@@ -1,0 +1,15 @@
+{% set reset = [] %}
+
+{% for option in background_color_options %}
+	{% set reset = reset|merge(['sb-textarea--' ~ option]) %}
+{% endfor %}
+
+{% set classes = ['sb-textarea', 'sb-textarea--' ~ background_color] %}
+
+{# prettier-ignore-start #}
+<div{{ wrapper_attributes }}>
+	<textarea{{ attributes.removeClass(reset).addClass(classes).setAttribute('rows', rows).setAttribute('cols', cols) }}>
+		{{ value }}
+	</textarea>
+</div>
+{# prettier-ignore-end #}

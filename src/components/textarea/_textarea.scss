@@ -1,0 +1,18 @@
+.sb-textarea {
+	border: 1.5px solid var(--color-neutral-regular-dark);
+	&:focus-visible {
+		outline: 2px solid var(--color-functional-focus);
+		outline-offset: -2px;
+	}
+}
+
+.sb-textarea--dark {
+	background-color: var(--color-neutral-lightest);
+	&:focus-visible {
+		outline-offset: -4px;
+	}
+}
+
+.sb-textarea--primary-lightest {
+	border-color: var(--color-neutral-darkest);
+}

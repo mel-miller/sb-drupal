@@ -1086,3 +1086,21 @@ p {
     display: none;
   }
 }
+.sb-textarea {
+  border: 1.5px solid var(--color-neutral-regular-dark);
+}
+.sb-textarea:focus-visible {
+  outline: 2px solid var(--color-functional-focus);
+  outline-offset: -2px;
+}
+
+.sb-textarea--dark {
+  background-color: var(--color-neutral-lightest);
+}
+.sb-textarea--dark:focus-visible {
+  outline-offset: -4px;
+}
+
+.sb-textarea--primary-lightest {
+  border-color: var(--color-neutral-darkest);
+}
