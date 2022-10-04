@@ -332,7 +332,7 @@ template {
   --color-neutral-lightest: #edefef;
   --color-neutral-white: #ffffff;
   --color-opacity-clear: rgba(0, 0, 0, 0);
-  --color-opacity-dark: rgba(6, 31, 35, 0.5);
+  --color-opacity-dark: rgba(6, 31, 35, 0.7);
   --color-status-error-dark: #881330;
   --color-status-error-regular: #c51b3a;
   --color-status-error-light: #f5d5d5;
@@ -918,6 +918,36 @@ p {
 .sb-link--reverse:focus-visible span {
   outline: 2px solid var(--color-functional-focus-reverse);
   outline-offset: 4px;
+}
+
+.sb-modal {
+  display: none;
+  position: fixed;
+  padding-top: 20%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-opacity-dark);
+  z-index: 99;
+}
+
+.sb-modal__content {
+  position: relative;
+  padding: 2.75rem 4rem 2.75rem 3rem;
+  margin: auto;
+  width: 60%;
+  max-width: 920px;
+  box-shadow: 1px 0.5px 20px 4px rgba(0, 0, 0, 0.3);
+  background-color: var(--color-neutral-white);
+}
+
+.sb-modal__close-button {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 0.875rem;
+  right: 0.75rem;
 }
 
 .sb-tabs__tablist {

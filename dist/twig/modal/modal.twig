@@ -1,0 +1,18 @@
+{# Generate unique id if modal_id is not provided. #}
+{% set uniqueId = modal_id ? modal_id|raw : random() %}
+
+<button id="modalOpen--{{ uniqueId }}" class="{{ button_classes|default('sb-button') }}">{{ button_text }}</button>
+
+<div id="modal--{{ uniqueId }}" class="sb-modal">
+	<div class="sb-modal__content" tabindex="-1" role="dialog" aria-modal="true">
+		<button class="sb-modal__close-button" aria-label="Close">
+			{% include '../icon/icon.twig' with {
+				iconName: 'symbol-x-mark'
+			} %}
+		</button>
+
+		{% block modal_content %}
+			{{ content }}
+		{% endblock %}
+	</div>
+</div>

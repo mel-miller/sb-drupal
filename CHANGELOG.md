@@ -3,7 +3,7 @@
 ## [Unreleased]
 
 - Namespace component and main classes with `sb`.
-- Add Icon, Tabs, and Textarea components.
+- Add Icon, Modal, Tabs, and Textarea components.
 - Add Colors utility.
 - Improve documentation.
 

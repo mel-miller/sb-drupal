@@ -23,9 +23,8 @@ Here is an example of a Drupal theme template — `/templates/block/block--moda
   {% block content %}
 
     {% include "@sb/modal/modal.twig" with {
-      modal_num: block_id_num,
-      bg_color: content.field_bg_color|render|striptags|trim,
-      open_txt: content.field_open_button_text|render|striptags|trim,
+      modal_id: block_id_num,
+      button_text: content.field_open_button_text|render|striptags|trim,
       content: content.field_modal_content
     }%}
   {% endblock %}

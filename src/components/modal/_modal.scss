@@ -1,0 +1,29 @@
+.sb-modal {
+	display: none;
+	position: fixed;
+	padding-top: 20%;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--color-opacity-dark);
+	z-index: 99;
+}
+
+.sb-modal__content {
+	position: relative;
+	padding: 2.75rem 4rem 2.75rem 3rem;
+	margin: auto;
+	width: 60%;
+	max-width: 920px;
+	box-shadow: 1px 0.5px 20px 4px rgba(0, 0, 0, 0.3);
+	background-color: var(--color-neutral-white);
+}
+
+.sb-modal__close-button {
+	background-color: transparent;
+	border: none;
+	position: absolute;
+	top: 0.875rem;
+	right: 0.75rem;
+}
