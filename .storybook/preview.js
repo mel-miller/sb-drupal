@@ -77,16 +77,16 @@ export const parameters = {
 				value: 'var(--color-neutral-white)',
 			},
 			{
-				name: 'primary-light',
+				name: 'light',
+				value: 'var(--color-neutral-lightest)',
+			},
+			{
+				name: 'primary-lightest',
 				value: 'var(--color-primary-lightest)',
 			},
 			{
-				name: 'accent-light',
+				name: 'accent-lightest',
 				value: 'var(--color-accent-lightest)',
-			},
-			{
-				name: 'neutral-light',
-				value: 'var(--color-neutral-lightest)',
 			},
 			{
 				name: 'dark',
