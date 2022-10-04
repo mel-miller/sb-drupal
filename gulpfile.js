@@ -107,10 +107,15 @@ const collectTwig = (done) => {
 	done()
 }
 
+// Watch for Twig changes + re-collect.
+const watchTwig = () => {
+	watch(config.components.twig, collectTwig)
+}
+
 exports.default = series(
 	cleanDist,
 	compileStyles,
 	compileJs,
 	collectTwig,
-	parallel(watchStyles, watchJs)
+	parallel(watchStyles, watchJs, watchTwig)
 )
