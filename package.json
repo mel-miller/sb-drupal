@@ -40,6 +40,7 @@
 		"concurrently": "^7.4.0",
 		"cssnano": "^5.1.13",
 		"del": "^6.1.1",
+		"drupal-attribute": "^1.0.2",
 		"drupal-twig-extensions": "^1.0.0-beta.4",
 		"generator-sb-drupal": "^0.2.0",
 		"gulp": "^4.0.2",
