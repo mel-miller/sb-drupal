@@ -21,9 +21,9 @@ export default {
 		variant: {
 			description: 'Link variant',
 			table: { defaultValue: { summary: 'primary' } },
+			options: ['primary', 'secondary', 'reverse'],
 			control: {
 				type: 'radio',
-				options: ['primary', 'secondary', 'reverse'],
 			},
 		},
 		href: {

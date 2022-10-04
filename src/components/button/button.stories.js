@@ -23,17 +23,17 @@ export default {
 		variant: {
 			description: 'Button variant',
 			table: { defaultValue: { summary: 'primary' } },
+			options: ['primary', 'secondary', 'reverse'],
 			control: {
 				type: 'radio',
-				options: ['primary', 'secondary', 'reverse'],
 			},
 		},
 		type: {
 			description: 'Button type attribute',
 			table: { defaultValue: { summary: 'button' } },
+			options: ['button', 'submit', 'reset'],
 			control: {
 				type: 'radio',
-				options: ['button', 'submit', 'reset'],
 			},
 		},
 		disabled: {
