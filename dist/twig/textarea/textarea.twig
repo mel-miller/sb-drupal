@@ -1,0 +1,9 @@
+{% set classes = ['sb-textarea', 'sb-textarea--' ~ background_color] %}
+
+{# prettier-ignore-start #}
+<div{{ wrapper_attributes }}>
+	<textarea{{ attributes.addClass(classes).setAttribute('rows', rows).setAttribute('cols', cols) }}>
+		{{ value }}
+	</textarea>
+</div>
+{# prettier-ignore-end #}
