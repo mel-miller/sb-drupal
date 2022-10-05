@@ -2,7 +2,10 @@
 
 ## [Unreleased]
 
--Fix code preview display.
+## [v0.2.3] - 2022-10-05
+
+- Fix code preview display.
+- Update Button type property.
 
 ## [v0.2.2] - 2022-10-05
 
