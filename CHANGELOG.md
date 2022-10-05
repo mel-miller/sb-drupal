@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [v0.2.2] - 2022-10-05
+
 - Update custom theme.
 
 ## [v0.2.1] - 2022-10-04
