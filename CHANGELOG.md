@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- Update custom theme.
+
 ## [v0.2.1] - 2022-10-04
 
 - Build custom Storybook theme.
