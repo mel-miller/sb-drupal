@@ -2,7 +2,11 @@
 
 ## [Unreleased]
 
-## [v0.2.0] - 2022-10-02
+## [v0.2.1] - 2022-10-04
+
+- Build custom Storybook theme.
+
+## [v0.2.0] - 2022-10-04
 
 - Namespace component and main classes with `sb`.
 - Add Icon, Modal, Tabs, and Textarea components.
