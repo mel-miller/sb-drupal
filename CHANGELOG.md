@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+-Fix code preview display.
+
 ## [v0.2.2] - 2022-10-05
 
 - Update custom theme.
