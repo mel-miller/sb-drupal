@@ -155,7 +155,7 @@ Wrap all component-specific js in a behavior like so:
 
 ```
 Drupal.behaviors.behaviorName = {
-	attach(context) {
+	attach(context, settings) {
 
 	},
 };
