@@ -10,7 +10,6 @@ const { addDrupalExtensions } = require('drupal-twig-extensions/twig')
 addDrupalExtensions(Twig)
 
 // Emulate Drupal behaviors.
-// addDecorator deprecated, will eventually need a new solution for this.
 addDecorator((Story) => {
 	useEffect(() => Drupal.attachBehaviors(), [])
 	return Story()
