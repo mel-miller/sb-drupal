@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"gulp": "./node_modules/gulp/bin/gulp.js",
-		"storybook": "start-storybook -p 6006",
+		"storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 6006",
 		"develop": "concurrently --raw --kill-others \"npm run gulp\" \"npm run storybook\"",
 		"build:storybook": "build-storybook"
 	},
