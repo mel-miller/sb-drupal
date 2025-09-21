@@ -25,6 +25,7 @@
   "devDependencies": {
     "@storybook/addon-docs": "^9.1.7",
     "@storybook/html-vite": "^9.1.7",
+    "plop": "^4.0.3",
     "storybook": "^9.1.7",
     "vite": "^7.1.6"
   }
