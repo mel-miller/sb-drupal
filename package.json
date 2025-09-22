@@ -1,32 +1,66 @@
 {
-  "name": "sb-drupal",
-  "version": "0.2.4",
-  "description": "A Storybook implementation for Drupal.",
-  "main": "index.js",
-  "scripts": {
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mel-miller/sb-drupal.git"
-  },
-  "keywords": [
-    "Storybook",
-    "Drupal",
-    "Twig"
-  ],
-  "author": "M. Miller",
-  "license": "GPL-3.0-or-later",
-  "bugs": {
-    "url": "https://github.com/mel-miller/sb-drupal/issues"
-  },
-  "homepage": "https://github.com/mel-miller/sb-drupal#readme",
-  "devDependencies": {
-    "@storybook/addon-docs": "^9.1.7",
-    "@storybook/html-vite": "^9.1.7",
-    "plop": "^4.0.3",
-    "storybook": "^9.1.7",
-    "vite": "^7.1.6"
-  }
+	"name": "sb-drupal",
+	"version": "1.0.0",
+	"description": "A Storybook implementation for Drupal.",
+	"type": "module",
+	"scripts": {
+		"build": "npm run tokens:build && npm run css:build && vite build",
+		"dev": "vite",
+		"develop": "concurrently --raw --kill-others \"npm run storybook\" \"npm run tokens:watch\" \"npm run css:watch\"",
+		"preview": "vite preview",
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "storybook build",
+		"tokens:build": "npx style-dictionary build -c src/design-tokens/config.json",
+		"tokens:clean": "npx style-dictionary clean -c src/design-tokens/config.json",
+		"tokens:update": "npm run tokens:clean && npm run tokens:build",
+		"tokens:watch": "chokidar 'src/design-tokens/tokens/**/*.json' -c 'npm run tokens:update'",
+		"css:clean": "rimraf css",
+		"css:build": "npm run css:clean && postcss src/global-styles.css -o css/bay-area-drupal-styles.css",
+		"css:watch": "npm run css:clean && postcss src/global-styles.css -o css/bay-area-drupal-styles.css --watch",
+		"generate:foundation": "plop foundation",
+		"generate:element": "plop element",
+		"generate:component": "plop component",
+		"generate:layout": "plop layout",
+		"generate:utility": "plop utility"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mel-miller/sb-drupal.git"
+	},
+	"keywords": [
+		"Storybook",
+		"Drupal",
+		"Twig"
+	],
+	"author": "M. Miller",
+	"license": "GPL-3.0-or-later",
+	"bugs": {
+		"url": "https://github.com/mel-miller/sb-drupal/issues"
+	},
+	"homepage": "https://github.com/mel-miller/sb-drupal#readme",
+	"devDependencies": {
+		"@csstools/postcss-global-data": "^3.1.0",
+		"@modyfi/vite-plugin-yaml": "^1.1.1",
+		"@storybook/addon-docs": "^9.1.7",
+		"@storybook/html-vite": "^9.1.7",
+		"chokidar-cli": "^3.0.0",
+		"concurrently": "^9.2.1",
+		"cssnano": "^7.1.1",
+		"plop": "^4.0.3",
+		"postcss": "^8.5.6",
+		"postcss-cli": "^11.0.1",
+		"postcss-custom-media": "^11.0.6",
+		"postcss-import": "^16.1.1",
+		"postcss-insert": "^1.0.0",
+		"postcss-nested": "^7.0.2",
+		"prettier": "^3.6.2",
+		"prettier-plugin-css-order": "^2.1.2",
+		"storybook": "^9.1.7",
+		"vite": "^7.1.6"
+	},
+	"dependencies": {
+		"glob": "^11.0.3",
+		"vite-plugin-eslint": "^1.8.1",
+		"vite-plugin-twig-drupal": "^1.6.2"
+	}
 }
