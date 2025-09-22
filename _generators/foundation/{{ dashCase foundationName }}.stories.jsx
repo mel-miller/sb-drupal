@@ -5,7 +5,7 @@ export default {
 
 export const Default = {
 	render: () => `
-    <div class="sbd-{{ dashCase foundationName }}">
+    <div class="sb-{{ dashCase foundationName }}">
       Example content goes here.
     </div>
   `,
