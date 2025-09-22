@@ -1,1 +1,1 @@
-<button {% if type %}type="{{ type }}" {% endif -%}{% if disabled %}disabled {% endif %}class="sb-button{% if variant and variant != 'primary' %} sb-button--{{ variant }}{% endif %}">{{ text }}</button>
+<button {% if type %}type="{{ type }}" {% endif -%}{% if disabled %}disabled {% endif %}class="sb-button{% if variant and variant != 'primary' %} sb-button--{{ variant }}{% endif %} sb-button--{{ size|default('md') }}">{{ text }}</button>

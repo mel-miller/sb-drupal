@@ -1,4 +1,5 @@
 ---
+size: 'md'
 text: 'Button'
 type: 'button'
 variant: 'primary'

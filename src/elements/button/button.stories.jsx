@@ -6,6 +6,10 @@ export default {
 	tags: ['autodocs'],
 	render: (args) => markup(args),
 	argTypes: {
+		size: {
+			control: { type: 'select' },
+			options: ['sm', 'md', 'lg'],
+		},
 		variant: {
 			control: { type: 'select' },
 			options: ['primary', 'secondary', 'critical'],
