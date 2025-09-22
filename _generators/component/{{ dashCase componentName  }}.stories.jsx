@@ -1,14 +1,13 @@
-import markup from './{{ dashCase componentName }}.twig';
-import data from './{{ dashCase componentName }}.yml';
+import markup from './{{ dashCase componentName }}.twig'
+import data from './{{ dashCase componentName }}.yml'
 
 export default {
 	title: 'Components/{{ titleCase componentName }}',
-	tags: ['autodocs'],
 	render: (args) => markup(args),
 	argTypes: {},
 	args: {
 		...data,
 	},
-};
+}
 
-export const Default = {};
+export const Default = {}

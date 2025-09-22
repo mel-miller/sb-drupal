@@ -1,0 +1,9 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import * as {{ properCase layoutName }}Stories from './{{ dashCase layoutName }}.stories';
+
+<Meta of={ {{ properCase layoutName }}Stories } />
+
+# {{ properCase layoutName }}
+
+<Canvas of={ {{ properCase layoutName }}Stories.Default } />
+<Controls of={ {{ properCase layoutName }}Stories.Default } />
