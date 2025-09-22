@@ -1,0 +1,33 @@
+{
+  "border": {
+    "$type": "border",
+    "radius": {
+      "minimal": {
+        "$value": "0.125rem"
+      },
+      "basic": {
+        "$value": "0.5rem"
+      },
+      "button": {
+        "$value": "2rem"
+      },
+      "container": {
+        "$value": "0.75rem"
+      },
+      "input": {
+        "$value": "0.25rem"
+      }
+    },
+    "width": {
+      "thin": {
+        "$value": "0.0625rem"
+      },
+      "medium": {
+        "$value": "0.1825rem"
+      },
+      "thick": {
+        "$value": "0.375rem"
+      }
+    }
+  }
+}
