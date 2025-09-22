@@ -1,0 +1,11 @@
+---
+kicker_text: 'Category Name'
+heading_text: 'This is the card heading'
+heading_level: 'h2'
+body_text: 'Body text of content, or content summary. Helvetica kombucha shabby chic, mustache put a bird on it. Green juice twee iceland cardigan retro art party lomo intelligentsia.'
+link:
+  url: '#'
+  text: 'Read More'
+image:
+  src: 'demo-images/placeimg_360_240_nature.jpeg'
+  alt: 'Beach at sunset.'

@@ -2,7 +2,7 @@
 
 A Storybook implementation for Drupal.
 
-This toolkit provides assets for use within a Drupal 9 theme, and a Storybook instance to preview the components.
+This toolkit provides assets for use within a Drupal theme, and a Storybook instance to preview the components.
 
 [Published Storybook](https://mel-miller.github.io/sb-drupal)
 

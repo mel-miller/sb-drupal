@@ -1,7 +1,4 @@
 .sb-button {
-}
-
-.sb-button {
 	--background: var(--color-primary-700);
 	--background-hover: var(--color-primary-800);
 	--foreground: var(--color-neutral-000);
@@ -14,7 +11,7 @@
 	border-radius: var(--border-radius-button);
 	color: var(--foreground);
 	display: inline-block;
-	font-family: var(--text-font-display);
+	font-family: var(--text-font-sans);
 	font-size: var(--font-size);
 	font-weight: var(--text-weight-regular);
 	letter-spacing: 0.015em;
