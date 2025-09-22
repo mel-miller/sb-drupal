@@ -3,7 +3,6 @@ import data from './container.yml'
 
 export default {
 	title: 'Layouts/Container',
-	tags: ['autodocs'],
 	parameters: {
 		layout: 'fullscreen',
 	},

@@ -3,7 +3,6 @@ import data from './link.yml'
 
 export default {
 	title: 'Elements/Link',
-	tags: ['autodocs'],
 	render: (args) => markup(args),
 	argTypes: {
 		variant: {

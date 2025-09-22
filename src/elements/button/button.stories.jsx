@@ -3,7 +3,6 @@ import data from './button.yml'
 
 export default {
 	title: 'Elements/Button',
-	tags: ['autodocs'],
 	render: (args) => markup(args),
 	argTypes: {
 		size: {
