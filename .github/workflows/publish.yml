@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: read
+      contents: write
       pages: write
       id-token: write
       pull-requests: write
@@ -58,17 +58,16 @@ jobs:
       - name: Deploy PR to subdirectory
         if: github.event_name == 'pull_request' && github.event.action != 'closed'
         run: |
-          # Install gh CLI for GitHub Pages management
-          sudo apt-get update
-          sudo apt-get install gh
-
           # Configure git
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Checkout gh-pages branch
-          git checkout --orphan gh-pages-temp
-          git pull origin gh-pages || echo "gh-pages branch doesn't exist yet"
+          # Setup authentication
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+
+          # Fetch and checkout gh-pages branch (create if doesn't exist)
+          git fetch origin gh-pages:gh-pages 2>/dev/null || git checkout --orphan gh-pages
+          git checkout gh-pages 2>/dev/null || echo "Created new gh-pages branch"
 
           # Create PR directory and copy files
           PR_DIR="pr-${{ github.event.number }}"
@@ -77,10 +76,10 @@ jobs:
 
           # Add and commit
           git add "$PR_DIR"
-          git commit -m "Deploy PR #${{ github.event.number }} to $PR_DIR"
+          git commit -m "Deploy PR #${{ github.event.number }} to $PR_DIR" || echo "No changes to commit"
 
           # Push to gh-pages
-          git push origin gh-pages-temp:gh-pages
+          git push origin gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -92,9 +91,12 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Checkout gh-pages branch
+          # Setup authentication
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+
+          # Fetch and checkout gh-pages branch
           git fetch origin gh-pages:gh-pages || echo "gh-pages branch doesn't exist"
-          git checkout gh-pages
+          git checkout gh-pages || exit 0
 
           # Remove PR directory
           PR_DIR="pr-${{ github.event.number }}"
