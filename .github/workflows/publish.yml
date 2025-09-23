@@ -4,7 +4,10 @@ on:
   push:
     branches:
       - main
-      - major-upgrade
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
 
 jobs:
   deploy-storybook:
@@ -14,6 +17,7 @@ jobs:
       contents: read
       pages: write
       id-token: write
+      pull-requests: write
 
     steps:
       - name: Checkout
@@ -34,14 +38,97 @@ jobs:
       - name: Build Storybook
         run: npm run build-storybook
 
-      - name: Setup Pages
+      # Main branch deployment (root)
+      - name: Setup Pages (Main)
+        if: github.ref == 'refs/heads/main'
         uses: actions/configure-pages@v4
 
-      - name: Upload Storybook to Pages
+      - name: Upload Storybook to Pages (Main)
+        if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
           path: './storybook-static'
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages (Main)
+        if: github.ref == 'refs/heads/main'
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # PR deployment (subdirectory)
+      - name: Deploy PR to subdirectory
+        if: github.event_name == 'pull_request' && github.event.action != 'closed'
+        run: |
+          # Install gh CLI for GitHub Pages management
+          sudo apt-get update
+          sudo apt-get install gh
+
+          # Configure git
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Checkout gh-pages branch
+          git checkout --orphan gh-pages-temp
+          git pull origin gh-pages || echo "gh-pages branch doesn't exist yet"
+
+          # Create PR directory and copy files
+          PR_DIR="pr-${{ github.event.number }}"
+          mkdir -p "$PR_DIR"
+          cp -r storybook-static/* "$PR_DIR/"
+
+          # Add and commit
+          git add "$PR_DIR"
+          git commit -m "Deploy PR #${{ github.event.number }} to $PR_DIR"
+
+          # Push to gh-pages
+          git push origin gh-pages-temp:gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Cleanup PR directory when PR is closed
+      - name: Cleanup PR directory
+        if: github.event_name == 'pull_request' && github.event.action == 'closed'
+        run: |
+          # Configure git
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Checkout gh-pages branch
+          git fetch origin gh-pages:gh-pages || echo "gh-pages branch doesn't exist"
+          git checkout gh-pages
+
+          # Remove PR directory
+          PR_DIR="pr-${{ github.event.number }}"
+          if [ -d "$PR_DIR" ]; then
+            rm -rf "$PR_DIR"
+            git add .
+            git commit -m "Remove PR #${{ github.event.number }} directory ($PR_DIR)"
+            git push origin gh-pages
+            echo "Removed $PR_DIR directory"
+          else
+            echo "$PR_DIR directory not found"
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Comment on PR with preview link
+        if: github.event_name == 'pull_request' && github.event.action != 'closed'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.payload.pull_request.number;
+            const repoOwner = context.repo.owner;
+            const repoName = context.repo.repo;
+            const previewUrl = `https://${repoOwner}.github.io/${repoName}/pr-${prNumber}/`;
+
+            const comment = `🚀 **Storybook Preview Deployed!**
+
+            Preview this PR's changes at: ${previewUrl}
+
+            This preview will be updated automatically when you push new commits to this PR.`;
+
+            github.rest.issues.createComment({
+              issue_number: prNumber,
+              owner: repoOwner,
+              repo: repoName,
+              body: comment
+            });
