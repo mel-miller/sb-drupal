@@ -132,12 +132,21 @@ jobs:
           # Setup authentication
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
-          # Fetch and checkout gh-pages branch (create if doesn't exist)
-          git fetch origin gh-pages:gh-pages 2>/dev/null || git checkout --orphan gh-pages
-          git checkout gh-pages 2>/dev/null || echo "Created new gh-pages branch"
+          # Fetch gh-pages branch or create it if it doesn't exist
+          git fetch origin gh-pages:gh-pages 2>/dev/null || {
+            echo "Creating new gh-pages branch"
+            git checkout --orphan gh-pages
+            git rm -rf . 2>/dev/null || true
+          }
+
+          # Checkout gh-pages properly (not detached)
+          git checkout gh-pages 2>/dev/null || {
+            echo "Switched to new gh-pages branch"
+          }
 
           # Create PR directory and copy files
           PR_DIR="pr-${{ github.event.number }}"
+          rm -rf "$PR_DIR" 2>/dev/null || true  # Remove existing directory
           mkdir -p "$PR_DIR"
           cp -r storybook-static/* "$PR_DIR/"
 
