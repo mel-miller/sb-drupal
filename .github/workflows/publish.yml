@@ -32,7 +32,11 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          # Clear npm cache and remove lock file to avoid optional dependency issues
+          npm cache clean --force
+          rm -f package-lock.json
+          npm install
 
       - name: Build component library
         run: npm run build
@@ -128,20 +132,37 @@ jobs:
           # Setup authentication
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
-          # Fetch and checkout gh-pages branch (create if doesn't exist)
-          git fetch origin gh-pages:gh-pages 2>/dev/null || git checkout --orphan gh-pages
-          git checkout gh-pages 2>/dev/null || echo "Created new gh-pages branch"
+          # Clone the gh-pages branch in a separate directory
+          cd ..
+          git clone --single-branch --branch gh-pages https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git gh-pages-repo || {
+            echo "gh-pages branch doesn't exist, creating new repo"
+            mkdir gh-pages-repo
+            cd gh-pages-repo
+            git init
+            git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git checkout -b gh-pages
+            echo "# GitHub Pages" > README.md
+            git add README.md
+            git commit -m "Initialize gh-pages branch"
+            git push -u origin gh-pages
+            cd ..
+            rm -rf gh-pages-repo
+            git clone --single-branch --branch gh-pages https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git gh-pages-repo
+          }
+
+          cd gh-pages-repo
 
           # Create PR directory and copy files
           PR_DIR="pr-${{ github.event.number }}"
+          rm -rf "$PR_DIR" 2>/dev/null || true
           mkdir -p "$PR_DIR"
-          cp -r storybook-static/* "$PR_DIR/"
+          cp -r ../sb-drupal/storybook-static/* "$PR_DIR/"
 
-          # Add and commit
+          # Add, commit and push
           git add "$PR_DIR"
-          git commit -m "Deploy PR #${{ github.event.number }} to $PR_DIR" || echo "No changes to commit"
-
-          # Push to gh-pages
+          git commit -m "Deploy PR #${{ github.event.number }} to $PR_DIR"
           git push origin gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
