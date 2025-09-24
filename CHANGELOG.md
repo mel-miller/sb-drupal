@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [v1.0.0-alpha.3] - 2024-09-25
+
+- Fix tagged deploy workflow to root.
+
 ## [v1.0.0-alpha.2] - 2024-09-25
 
 - Fix tagged deploy workflow.
