@@ -6,7 +6,7 @@ This toolkit provides assets for use within a Drupal theme, and a Storybook inst
 
 [Published Storybook](https://mel-miller.github.io/sb-drupal)
 
-<!-- The following instructions are for contributors to this repository. Drupal integration and usage instructions can be found within the published Storybook. -->
+The following instructions are for contributors to this repository. Drupal integration and usage instructions can be found within the published Storybook.
 
 ## Local Development Setup
 
