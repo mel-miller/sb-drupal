@@ -1,4 +1,4 @@
-import{t as s,T as o}from"./iframe-BJR5fbRq.js";import{D as i,a as c}from"./twig-7Aq35BG1.js";c(o);o.cache(!1);const n=t=>t,l=(t={})=>{const a=s.twig({id:"/home/runner/work/sb-drupal/sb-drupal/src/layouts/container/container.twig",data:[{type:"raw",value:`<div class="sb-container">
+import{t as s,T as o}from"./iframe-Bha8Ox15.js";import{D as i,a as c}from"./twig-CAj5iEsO.js";c(o);o.cache(!1);const n=t=>t,l=(t={})=>{const a=s.twig({id:"/home/runner/work/sb-drupal/sb-drupal/src/layouts/container/container.twig",data:[{type:"raw",value:`<div class="sb-container">
  `,position:{start:0,end:28}},{type:"output",position:{start:28,end:41},stack:[{type:"Twig.expression.type.variable",value:"content",match:["content"],position:{start:28,end:41}}]},{type:"raw",value:`
 </div>
 `,position:{start:41,end:41}}],precompiled:!0});a.options.allowInlineIncludes=!0;try{let e=t.defaultAttributes?t.defaultAttributes:[];return Array.isArray(e)||(e=Object.entries(e)),n(a.render({attributes:new i(e),...t}))}catch(e){return n("An error occurred whilst rendering /home/runner/work/sb-drupal/sb-drupal/src/layouts/container/container.twig: "+e.toString())}},u={content:`<h3>

@@ -1,4 +1,4 @@
-import{j as e,M as s,C as i,a as h}from"./blocks-Cn5MzHaW.js";import{useMDXComponents as r}from"./index-DghiobWc.js";import{C as c,D as o}from"./container.stories-SymTCT1K.js";import"./preload-helper-PPVm8Dsz.js";import"./iframe-BJR5fbRq.js";import"./twig-7Aq35BG1.js";function a(t){const n={h1:"h1",h2:"h2",p:"p",...r(),...t.components};return e.jsxs(e.Fragment,{children:[e.jsx(s,{of:c}),`
+import{j as e,M as s,C as i,a as h}from"./blocks-DG3SluDF.js";import{useMDXComponents as r}from"./index-QOMfznCg.js";import{C as c,D as o}from"./container.stories-cZH_K5wj.js";import"./preload-helper-PPVm8Dsz.js";import"./iframe-Bha8Ox15.js";import"./twig-CAj5iEsO.js";function a(t){const n={h1:"h1",h2:"h2",p:"p",...r(),...t.components};return e.jsxs(e.Fragment,{children:[e.jsx(s,{of:c}),`
 `,e.jsx(n.h1,{id:"container",children:"Container"}),`
 `,e.jsx(n.h2,{id:"purpose",children:"Purpose"}),`
 `,e.jsx(n.p,{children:"By using a consistent wrapper element, each horizontal content region will have the same width at each breakpoint and provide consistent page alignment, while allowing background styles to bleed to the edge of the viewport."}),`

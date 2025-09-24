@@ -1,4 +1,4 @@
-import{j as e,M as t}from"./blocks-Cn5MzHaW.js";import{useMDXComponents as o}from"./index-DghiobWc.js";import"./preload-helper-PPVm8Dsz.js";import"./iframe-BJR5fbRq.js";function s(n){const i={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",p:"p",...o(),...n.components};return e.jsxs(e.Fragment,{children:[e.jsx(t,{title:"Documentation/Overview"}),`
+import{j as e,M as t}from"./blocks-DG3SluDF.js";import{useMDXComponents as o}from"./index-QOMfznCg.js";import"./preload-helper-PPVm8Dsz.js";import"./iframe-Bha8Ox15.js";function s(n){const i={a:"a",code:"code",h1:"h1",h2:"h2",h3:"h3",p:"p",...o(),...n.components};return e.jsxs(e.Fragment,{children:[e.jsx(t,{title:"Documentation/Overview"}),`
 `,e.jsx(i.h1,{id:"storybook-drupal",children:"Storybook Drupal"}),`
 `,e.jsx(i.p,{children:"This toolkit is a sample Storybook implementation for Drupal."}),`
 `,e.jsx(i.p,{children:"At this point in time, it is not meant to be a complete example of a design system, but rather an organizational system and collection of example components."}),`

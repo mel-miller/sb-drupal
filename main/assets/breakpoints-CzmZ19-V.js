@@ -1,4 +1,4 @@
-import{j as e,M as r}from"./blocks-Cn5MzHaW.js";import{useMDXComponents as s}from"./index-DghiobWc.js";import"./preload-helper-PPVm8Dsz.js";import"./iframe-BJR5fbRq.js";function t(i){const n={code:"code",h1:"h1",h2:"h2",h3:"h3",p:"p",pre:"pre",...s(),...i.components};return e.jsxs(e.Fragment,{children:[e.jsx(r,{title:"Utilities/Breakpoints"}),`
+import{j as e,M as r}from"./blocks-DG3SluDF.js";import{useMDXComponents as s}from"./index-QOMfznCg.js";import"./preload-helper-PPVm8Dsz.js";import"./iframe-Bha8Ox15.js";function t(i){const n={code:"code",h1:"h1",h2:"h2",h3:"h3",p:"p",pre:"pre",...s(),...i.components};return e.jsxs(e.Fragment,{children:[e.jsx(r,{title:"Utilities/Breakpoints"}),`
 `,e.jsx(n.h1,{id:"breakpoints",children:"Breakpoints"}),`
 `,e.jsx(n.p,{children:"Breakpoints are standardized values for media queries and are used in conjunction with our grid. The small breakpoint has a maximum value, while all others have minimum values."}),`
 `,e.jsx(n.h3,{id:"values",children:"Values"}),`
