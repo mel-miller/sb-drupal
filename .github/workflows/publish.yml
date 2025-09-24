@@ -32,7 +32,11 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          # Clear npm cache and remove lock file to avoid optional dependency issues
+          npm cache clean --force
+          rm -f package-lock.json
+          npm install
 
       - name: Build component library
         run: npm run build
