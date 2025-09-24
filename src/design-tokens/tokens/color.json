@@ -7,68 +7,99 @@
 		"background": {
 			"$value": "{color.neutral.000}"
 		},
+		"text": {
+			"body": {
+				"$value": "{color.neutral.800}"
+			},
+			"heading": {
+				"$value": "{color.neutral.900}"
+			}
+		},
 		"primary": {
 			"100": {
-				"$value": "#E6F3F5"
+				"$value": "#DEF7F8"
 			},
 			"200": {
-				"$value": "#C1E0E6"
+				"$value": "#BCDDE0"
 			},
 			"300": {
-				"$value": "#9CCED7"
-			},
-			"350": {
-				"$value": "#77BBC8"
+				"$value": "#9BC3C8"
 			},
 			"400": {
-				"$value": "#52A8B9"
+				"$value": "#79A9B0"
 			},
 			"500": {
-				"$value": "#2D96AA"
+				"$value": "#578F97"
 			},
 			"600": {
-				"$value": "#08839B"
+				"$value": "#3A7D88"
 			},
 			"700": {
-				"$value": "#066274"
+				"$value": "#145B67"
 			},
 			"800": {
-				"$value": "#04424E"
+				"$value": "#14444B"
 			},
 			"900": {
-				"$value": "#022127"
+				"$value": "#142C30"
 			}
 		},
 		"secondary": {
 			"100": {
-				"$value": "#FCEDF3"
+				"$value": "#FCEADE"
 			},
 			"200": {
-				"$value": "#F7D2E1"
+				"$value": "#F9CFBA"
 			},
 			"300": {
-				"$value": "#F2B8CF"
-			},
-			"350": {
-				"$value": "#ED9DBD"
+				"$value": "#F6B596"
 			},
 			"400": {
-				"$value": "#E882AA"
+				"$value": "#F49A73"
 			},
 			"500": {
-				"$value": "#E36898"
+				"$value": "#F1804F"
 			},
 			"600": {
-				"$value": "#DE4D86"
+				"$value": "#ee652b"
 			},
 			"700": {
-				"$value": "#A73A65"
+				"$value": "#CB4810"
 			},
 			"800": {
-				"$value": "#6F2743"
+				"$value": "#98360C"
 			},
 			"900": {
-				"$value": "#381322"
+				"$value": "#662408"
+			}
+		},
+		"accent": {
+			"100": {
+				"$value": "#FCE9EC"
+			},
+			"200": {
+				"$value": "#F8CBD3"
+			},
+			"300": {
+				"$value": "#F4ADBA"
+			},
+			"400": {
+				"$value": "#F08FA1"
+			},
+			"500": {
+				"$value": "#EC7187"
+			},
+			"600": {
+				"$value": "#E8536E"
+			},
+			"700": {
+				"$value": "#B62F48"
+			},
+			"800": {
+				"$value": "#7C2535"
+			},
+			"900": {
+				"$value": "#481C24"
 			}
 		},
 		"neutral": {
@@ -97,35 +128,41 @@
 				"$value": "#484848"
 			},
 			"800": {
-				"$value": "#2E2E2E"
+				"$value": "#2B2B2B"
 			},
 			"900": {
 				"$value": "#141414"
 			}
 		},
 		"status": {
-			"success": {
-				"$value": "#006753"
-			},
 			"success-light": {
 				"$value": "#D1E7E2"
 			},
-			"warning": {
-				"$value": "#C84D28"
+			"success-regular": {
+				"$value": "#177563"
 			},
-			"error": {
-				"$value": "#9E0000"
+			"success-dark": {
+				"$value": "#004D40"
 			},
-			"error-light": {
-				"$value": "#F6E8E8"
+			"critical-light": {
+				"$value": "#f5d5d5"
 			},
-			"info": {
-				"$value": "#0070A0"
+			"critical-regular": {
+				"$value": "#c51b3a"
+			},
+			"critical-dark": {
+				"$value": "#881330"
 			}
 		},
 		"interactive": {
 			"focus": {
-				"$value": "#0073e6"
+				"$value": "#004fe0"
+			},
+			"link": {
+				"$value": "{color.primary.600}"
+			},
+			"link-hover": {
+				"$value": "{color.secondary.700}"
 			}
 		}
 	}

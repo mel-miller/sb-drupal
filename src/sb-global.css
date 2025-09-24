@@ -17,10 +17,3 @@ body {
 	overflow-x: hidden;
 	font-weight: var(--text-weight-regular);
 }
-
-p {
-	line-height: var(--text-line-height-md);
-	margin-bottom: var(--dimension-m);
-	font-size: var(--text-size-m);
-	font-weight: var(--text-weight-regular);
-}

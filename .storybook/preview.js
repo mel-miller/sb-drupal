@@ -5,7 +5,7 @@ import twigDrupal from 'twig-drupal-filters'
 import { customBackgrounds } from './backgrounds'
 import { customViewports } from './viewports'
 
-import '../dist/css/sb-global.css'
+import '../src/sb-global.css'
 
 function setupTwig(twig) {
 	twig.cache()

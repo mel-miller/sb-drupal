@@ -1,20 +1,20 @@
 a {
-	color: var(--color-secondary-700);
+	color: var(--color-interactive-link);
 	font-family: inherit;
 	font-weight: inherit;
 	text-decoration: underline;
 
 	&:hover {
 		text-decoration: none;
-		color: var(--color-secondary-800);
+		color: var(--color-interactive-link-hover);
 	}
 
 	&:active {
-		color: var(--color-secondary-800);
+		color: var(--color-interactive-link-hover);
 	}
 
 	&:visited {
-		color: var(--color-secondary-700);
+		color: var(--color-interactive-link);
 	}
 
 	&:focus-visible {

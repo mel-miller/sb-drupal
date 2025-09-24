@@ -1,2 +1,5 @@
 @import url('./a11y.css');
 @import url('./anchor/anchor.css');
+@import url('./heading/heading.css');
+@import url('./paragraph/paragraph.css');
+@import url('./reset.css');
