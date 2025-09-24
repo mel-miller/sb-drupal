@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [v1.0.0-alpha.2] - 2024-09-25
+
+- Fix tagged deploy workflow.
+
 ## [v1.0.0-alpha.1] - 2024-09-25
 
 - Initial alpha release after restarting project.
