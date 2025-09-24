@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
 
     environment:
-      name: github-pages
+      name: ${{ startsWith(github.ref, 'refs/tags/v') && 'github-pages' || null }}
       url: ${{ steps.deployment.outputs.page_url }}
 
     permissions:
