@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [v1.0.0-alpha.1] - 2024-09-25
+
+- Initial alpha release after restarting project.
+- Update system to use Storybook 9 `html-vite` framework.
+- Begin reworking content and structure of the toolkit.
+
 ## [v0.2.3] - 2022-10-05
 
 - Fix code preview display.
