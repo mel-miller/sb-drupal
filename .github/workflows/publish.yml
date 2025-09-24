@@ -11,6 +11,10 @@ on:
     branches:
       - main
 
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: false
+
 jobs:
   deploy-storybook:
     runs-on: ubuntu-latest
@@ -106,8 +110,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Main branch deployment (main directory)
-      - name: Deploy main branch to subdirectory
+      # Main branch deployment (main directory) + PR cleanup if needed
+      - name: Deploy main branch and cleanup merged PR
         if: github.ref == 'refs/heads/main'
         run: |
           # Configure git
@@ -142,8 +146,19 @@ jobs:
           mkdir -p "$MAIN_DIR"
           cp -r ../sb-drupal/storybook-static/* "$MAIN_DIR/"
 
-          # Add, commit and push
-          git add "$MAIN_DIR"
+          # Check if this push was from a merged PR and clean up the PR directory
+          if [[ "${{ github.event.head_commit.message }}" == *"Merge pull request #"* ]]; then
+            # Extract PR number from commit message
+            PR_NUM=$(echo "${{ github.event.head_commit.message }}" | grep -o '#[0-9]\+' | head -1 | sed 's/#//')
+            PR_DIR="pr-$PR_NUM"
+            if [ -d "$PR_DIR" ]; then
+              echo "Cleaning up merged PR directory: $PR_DIR"
+              rm -rf "$PR_DIR"
+            fi
+          fi
+
+          # Add, commit and push all changes
+          git add .
           git commit -m "Deploy main branch to $MAIN_DIR directory"
           git push origin gh-pages
         env:
