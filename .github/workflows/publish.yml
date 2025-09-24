@@ -56,6 +56,38 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
+      # Also deploy release to versioned directory
+      - name: Deploy release to versioned directory
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          # Configure git
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Setup authentication
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+
+          # Get the tag name (remove refs/tags/ prefix)
+          TAG_NAME=${GITHUB_REF#refs/tags/}
+
+          # Fetch and checkout gh-pages branch (create if doesn't exist)
+          git fetch origin gh-pages:gh-pages 2>/dev/null || git checkout --orphan gh-pages
+          git checkout gh-pages 2>/dev/null || echo "Created new gh-pages branch"
+
+          # Create versioned directory and copy files
+          VERSION_DIR="$TAG_NAME"
+          mkdir -p "$VERSION_DIR"
+          cp -r storybook-static/* "$VERSION_DIR/"
+
+          # Add and commit
+          git add "$VERSION_DIR"
+          git commit -m "Deploy release $TAG_NAME to $VERSION_DIR directory" || echo "No changes to commit"
+
+          # Push to gh-pages
+          git push origin gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       # Main branch deployment (main directory)
       - name: Deploy main branch to subdirectory
         if: github.ref == 'refs/heads/main'
