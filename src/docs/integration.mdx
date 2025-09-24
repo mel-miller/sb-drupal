@@ -1,0 +1,81 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Documentation/Drupal Integration" />
+
+# Drupal Integration
+
+**NOTE: These instructions are still a work in progress and need to be fully tested.**
+
+This toolkit is intended to be imported directly into a custom Drupal theme.
+
+It is recommended that you build your theme from scratch and set the base theme to `stable9`.
+
+## Prerequisites
+
+- Drupal 10 or 11 site with a custom theme.
+- Drupal [Components!](https://www.drupal.org/project/components) module installed and enabled.
+- Node.js and NPM installed on your local machine.
+
+## Local development setup for theme
+
+1. From the root of your Drupal theme, run `npm init -y` to create a `package.json` file.
+2. Install the vendor-copy npm package by running `npm install --save-dev vendor-copy`.
+3. Add a "vendorCopy" section to your `package.json` file. It should look like this:
+
+```
+"vendorCopy": [
+  {
+    "from": "node_modules/@mel-miller/sb-drupal/dist/",
+    "to": "sb-drupal"
+  },
+]
+```
+
+4. Add a postinstall script to your `package.json` file to copy the assets after installing dependencies. It should look like this:
+
+```
+  "scripts": {
+    "postinstall": "vendor-copy"
+  }
+```
+
+5. Install the toolkit as a dependency by running `npm install sb-drupal`.
+
+## Theme integration
+
+1. Add a library definition to your theme's `.libraries.yml` file. It should look like this:
+
+```
+sb-drupal:
+  css:
+    theme:
+      sb-drupal/css/sb-global.css: {}
+  js:
+    sb-drupal/js/sb-global.js: {}
+  dependencies:
+    - core/jquery
+```
+
+2. Include the library in your theme's `.info.yml` file.
+
+```
+libraries:
+  - THEMENAME/sb-drupal
+```
+
+3. Configure ckeditor to use the toolkit styles by adding the following to your theme's `.info.yml` file.
+
+```
+ckeditor5-stylesheets:
+  - 'sb-drupal/css/sb-global.css'
+```
+
+4. Configure component namespaces in your theme's `.info.yml` file.
+
+```
+components:
+  namespaces:
+    elements: 'sb-drupal/elements'
+    components: 'sb-drupal/components'
+    layouts: 'sb-drupal/layouts'
+```

@@ -1,0 +1,119 @@
+<Meta title="Documentation/Drupal-Ready Components" />
+
+# Creating Drupal-Ready Components
+
+<h2 class="subtitle">
+	Tips to build components that will easily integrate into your Drupal theme
+</h2>
+
+In addition to providing thorough documentation for each component you write — such as sample code for templates and field-mapping instructions for blocks or other entities — there are additional methods to enable smooth consumption of components into your Drupal theme.
+
+The following tips center around the concept of writing components that are designed for Drupal, but will render accurately in Storybook.
+
+## 1. Create sample data as objects when necessary to match Drupal
+
+For field types that you know are objects within Drupal (links, images, etc...), you should replicate that object shape in your Storybook sample data (args) as much as possible.
+
+```js
+args: {
+  image: {
+    src: 'demo-images/placeimg_360_240_nature.jpeg',
+    alt: 'Beach at sunset.',
+  },
+},
+
+```
+
+## 2. Attribute Emulation
+
+This toolkit contains a [drupal-attribute emulator](https://www.npmjs.com/package/drupal-attribute), which allows us to replicate the Drupal attribute object functionality within Storybook.
+
+This is not necessary in most cases, especially when we are building a component from the ground up, however it can be very helpful in situations where we want to leverage existing Drupal functionality and utilize existing Drupal Twig templates. Form elements are good candidates for this approach.
+
+The included Textarea component is a good example. The Twig template includes attribute methods.
+
+```
+{% set classes = ['sb-textarea', 'sb-textarea--' ~ background_color] %}
+
+<div{{ wrapper_attributes }}>
+	<textarea{{ attributes.addClass(classes).setAttribute('rows', rows).setAttribute('cols', cols) }}>
+		{{ value }}
+	</textarea>
+</div>
+```
+
+This will obviously work in Drupal, but we need to tell Storybook what to do with it.
+
+Import the emulator into the stories.js file:
+
+```js
+import drupalAttribute from 'drupal-attribute'
+```
+
+Then create any attribute objects as args. In this case we have `attributes` and `wrapper_attributes`. Make sure to pass these args into the component Template function along with the other args.
+
+```js
+args: {
+  background_color: 'light',
+  rows: 5,
+  cols: 30,
+  attributes: new drupalAttribute(),
+  wrapper_attributes: new drupalAttribute(),
+},
+```
+
+Then hide these args from the controls. This last step, despite being optional, will help keep your Storybook args table tidy.
+
+```js
+argTypes: {
+  attributes: {
+    table: {
+      disable: true,
+    },
+  },
+  wrapper_attributes: {
+    table: {
+      disable: true,
+    },
+  },
+},
+```
+
+## 3. Conditionally render for Storybook
+
+There are instances where you may need to render something differently in Storybook than in Drupal.
+
+### 3a. Conditionally render a section of the template
+
+The `db_is_active` variable can be used to achieve this as it is not relevant in Storybook and can be used to signify a Drupal site.
+
+A potential use case is when you know you're dealing with a formatted long text field in Drupal, but you don't want to have to recreate that within your Storybook sample data. You can wrap your sample data in a `<p>` tag within Storybook, but let Drupal handle the actual formatted text when rendered within the site.
+
+There's an example of this technique within the Card component.
+
+```
+{% if body_text %}
+<div class="sb-card__bodytext">
+  {# Wrap in paragraph tag if not Drupal site #}
+  {% if not db_is_active %}
+    <p>{{ body_text }}</p>
+  {% else %}
+    {{ body_text }}
+  {% endif %}
+</div>
+{% endif %}
+
+```
+
+### 3b. Use a different variation of the template in Storybook
+
+In some rare cases, you may have to significantly manipulate the Twig template to get it to work correctly within Storybook, but you want to keep the clean version for use in the Drupal site and your source code view.
+
+In this case you would create a second Twig template for use in Storybook with the naming convention `component-name.local.twig`. This template will not get shipped with the toolkit.
+
+See `textarea.stories.js` for an example of this approach. Note that the Drupal version is still being used for the source-code addon view.
+
+```js
+import TwigTextarea from './textarea.local.twig'
+import TextareaSource from '!!raw-loader!./textarea.twig'
+```

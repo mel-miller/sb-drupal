@@ -1,0 +1,53 @@
+<Meta title="Documentation/Theme Usage" />
+
+# Drupal Theme Usage Examples
+
+<h2 class="subtitle">
+	There are multiple ways to consume sb-drupal styles and patterns within the
+	Drupal theme
+</h2>
+
+## Direct inclusion within Twig templates
+
+Drupal template files must me stored in the `templates` directory at the root of the theme and must contain the `.html.twig` extension.
+
+However, The [Components!](https://www.drupal.org/project/components) module was designed to be able to reference Twig files from outside of your theme's `templates` directory. During the theme setup, we configured the theme to look within the `sb-drupal/dist/twig` directory by referencing the `@sb` Twig namespace.
+
+We can then use `include` (or `embed`, `extends`, etc...) to call the sb-drupal Twig file from within the Drupal Twig file.
+
+Here is an example of a Drupal theme template — `/templates/block/block--modal-block.html.twig` — that directly references a sb-drupal Twig template.
+
+```
+{% extends "block.html.twig" %}
+
+  {% block content %}
+
+    {% include "@sb/modal/modal.twig" with {
+      modal_id: block_id_num,
+      button_text: content.field_open_button_text|render|striptags|trim,
+      content: content.field_modal_content
+    }%}
+  {% endblock %}
+```
+
+In this example we are extending the default `block.html.twig` template, but are replacing the contents of the `content` block from the original template with the contents of `modal.twig`.
+
+We use the keyword `with` to map Drupal field values to the original Twig variables as the template is being included. Alternatively, we can set the variables before including the template — either by using `{% set %}` earlier in the Twig file or by setting the variables globally with a preprocess function.
+
+Use of the [Twig Vardumper](https://www.drupal.org/project/twig_vardumper) Drupal module is extremely helpful for identifying available Drupal variables within each template.
+
+This method is recommended (whenever possible) — instead of manually recreating the templates in Drupal — as it will set us up for success in keeping the theme in sync with the design system.
+
+## Apply classes to existing templates
+
+In some cases — usually with primitive components — it is not necessary to replace the markup provided by Drupal.
+
+For example, within a theme's submit button template — `/templates/input/input--submit.html.twig` — we can use the `addClass` function to add additional classes to the existing attributes.
+
+```
+<input{{ attributes.addClass('sb-button') }} />{{ children }}
+```
+
+## Component-specific instructions
+
+If there is a preferred or unique way to implement a particular component, it will be indicated on the component's documentation page.

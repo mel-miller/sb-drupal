@@ -152,4 +152,5 @@ argTypes: {
 - Add additional components of each type (element, component, layout, utility).
 - Add automated VRT and a11y testing.
 - Add NPM package publishing workflow.
+- Namespaced Twig files and instructions for importing into Drupal themes.
 - Add implementation instructions for Drupal themes.

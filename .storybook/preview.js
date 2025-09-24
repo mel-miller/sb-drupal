@@ -5,7 +5,7 @@ import twigDrupal from 'twig-drupal-filters'
 import { customBackgrounds } from './backgrounds'
 import { customViewports } from './viewports'
 
-import '../dist/css/sb-core.css'
+import '../dist/css/sb-global.css'
 
 function setupTwig(twig) {
 	twig.cache()
@@ -20,6 +20,7 @@ const preview = {
 		options: {
 			storySort: {
 				order: [
+					'Documentation',
 					'Foundations',
 					'Utilities',
 					'Elements',
