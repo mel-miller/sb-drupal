@@ -1,0 +1,9 @@
+p {
+	line-height: var(--text-line-height-md);
+	margin-bottom: var(--dimension-m);
+	font-size: var(--text-size-body);
+	font-weight: var(--text-weight-light);
+	letter-spacing: 0.02em;
+	color: var(--color-text-body);
+	font-family: var(--text-font-sans);
+}

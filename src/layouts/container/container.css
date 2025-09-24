@@ -1,0 +1,5 @@
+.sb-container {
+	max-width: var(--dimension-max);
+	margin-inline: auto;
+	padding-inline: var(--dimension-m);
+}

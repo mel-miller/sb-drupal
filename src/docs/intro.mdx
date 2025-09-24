@@ -1,0 +1,47 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Documentation/Overview" />
+
+# Storybook Drupal
+
+This toolkit is a sample Storybook implementation for Drupal.
+
+At this point in time, it is not meant to be a complete example of a design system, but rather an organizational system and collection of example components.
+
+Project repository: [https://github.com/mel-miller/sb-drupal](https://github.com/mel-miller/sb-drupal)
+
+<br />
+
+## Toolkit Organization
+
+This toolkit is divided into five main sections.
+
+### Documentation
+
+All documentation that is not for a specific component type is included in this section. It includes setup instructions, usage instructions, and tips for building components.
+
+### Foundations
+
+This section includes stories for displaying the styles for native HTML elements or global styles. Styles will be compiled into `sb-global.css`. Items in this section will not provide Twig files.
+
+### Utilities
+
+This section includes global utilities such as breakpoints, grid, and colors. Some will provide utility classes or mixins. Each will have a story with instructions and usage guidelines. Styles will be compiled into `sb-global.css`. Items in this section will not provide Twig files.
+
+### Elements
+
+This section includes simple UI elements such as buttons or icons. Elements can be used on their own or as part of more complex components.
+
+Styles will be compiled into `sb-global.css`and each items's Twig file will be provided within the `elements` directory of the npm package.
+
+### Components
+
+This section contains more complex UI components such as cards, modals, or navigation.
+
+Styles will be compiled into `sb-global.css`and each items's Twig file will be provided within the `components` directory of the npm package.
+
+### Layouts
+
+Layouts are unstyled (or minimally-styled) components that provide structure to a page. Examples include containers, region layouts, and page templates.
+
+Styles will be compiled into `sb-global.css`and each items's Twig file will be provided within the `layouts` directory of the npm package.

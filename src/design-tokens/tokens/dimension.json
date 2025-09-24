@@ -1,0 +1,59 @@
+{
+  "dimension": {
+    "$type": "dimension",
+    "6xs": {
+      "$value": "0.279rem"
+    },
+    "5xs": {
+      "$value": "0.335rem"
+    },
+    "4xs": {
+      "$value": "0.402rem"
+    },
+    "3xs": {
+      "$value": "0.482rem"
+    },
+    "2xs": {
+      "$value": "0.578rem"
+    },
+    "xs": {
+      "$value": "0.694rem"
+    },
+    "s": {
+      "$value": "0.833rem"
+    },
+    "m": {
+      "$value": "1rem"
+    },
+    "l": {
+      "$value": "1.2rem"
+    },
+    "xl": {
+      "$value": "1.44rem"
+    },
+    "2xl": {
+      "$value": "1.728rem"
+    },
+    "3xl": {
+      "$value": "2.074rem"
+    },
+    "4xl": {
+      "$value": "2.488rem"
+    },
+    "5xl": {
+      "$value": "2.986rem"
+    },
+    "6xl": {
+      "$value": "3.583rem"
+    },
+    "7xl": {
+      "$value": "4.3rem"
+    },
+    "8xl": {
+      "$value": "5.16rem"
+    },
+    "max": {
+      "$value": "75rem"
+    }
+  }
+}

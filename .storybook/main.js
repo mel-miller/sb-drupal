@@ -1,16 +1,13 @@
-module.exports = {
-	stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-	addons: [
-		{
-			name: '@storybook/addon-essentials',
-			options: {
-				actions: false,
-			},
-		},
-		'@storybook/addon-links',
-		'@storybook/addon-a11y',
-		'storybook-source-code-addon',
-	],
-	framework: '@storybook/html',
+/** @type { import('@storybook/html-vite').StorybookConfig } */
+
+const config = {
+	stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+	addons: ['@storybook/addon-docs', '@storybook/addon-a11y'],
+	framework: {
+		name: '@storybook/html-vite',
+		options: {},
+	},
 	staticDirs: ['../public'],
 }
+
+export default config

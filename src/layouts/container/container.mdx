@@ -1,0 +1,19 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks'
+import * as ContainerStories from './container.stories'
+
+<Meta of={ContainerStories} />
+
+# Container
+
+## Purpose
+
+By using a consistent wrapper element, each horizontal content region will have the same width at each breakpoint and provide consistent page alignment, while allowing background styles to bleed to the edge of the viewport.
+
+The container provides side padding and a uniform max width.
+
+## Usage
+
+The container will be most effective as content wrapper for Drupal regions. In most cases, you can add a div with this class as a content wrapper to any Drupal region template where the content should not run to the edge of the viewport.
+
+<Canvas of={ContainerStories.Default} />
+<Controls of={ContainerStories.Default} />

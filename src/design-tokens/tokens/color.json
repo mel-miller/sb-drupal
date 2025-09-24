@@ -1,0 +1,169 @@
+{
+	"color": {
+		"$type": "color",
+		"foreground": {
+			"$value": "{color.neutral.900}"
+		},
+		"background": {
+			"$value": "{color.neutral.000}"
+		},
+		"text": {
+			"body": {
+				"$value": "{color.neutral.800}"
+			},
+			"heading": {
+				"$value": "{color.neutral.900}"
+			}
+		},
+		"primary": {
+			"100": {
+				"$value": "#DEF7F8"
+			},
+			"200": {
+				"$value": "#BCDDE0"
+			},
+			"300": {
+				"$value": "#9BC3C8"
+			},
+			"400": {
+				"$value": "#79A9B0"
+			},
+			"500": {
+				"$value": "#578F97"
+			},
+			"600": {
+				"$value": "#3A7D88"
+			},
+			"700": {
+				"$value": "#145B67"
+			},
+			"800": {
+				"$value": "#14444B"
+			},
+			"900": {
+				"$value": "#142C30"
+			}
+		},
+		"secondary": {
+			"100": {
+				"$value": "#FCEADE"
+			},
+			"200": {
+				"$value": "#F9CFBA"
+			},
+			"300": {
+				"$value": "#F6B596"
+			},
+			"400": {
+				"$value": "#F49A73"
+			},
+			"500": {
+				"$value": "#F1804F"
+			},
+			"600": {
+				"$value": "#ee652b"
+			},
+			"700": {
+				"$value": "#CB4810"
+			},
+			"800": {
+				"$value": "#98360C"
+			},
+			"900": {
+				"$value": "#662408"
+			}
+		},
+		"accent": {
+			"100": {
+				"$value": "#FCE9EC"
+			},
+			"200": {
+				"$value": "#F8CBD3"
+			},
+			"300": {
+				"$value": "#F4ADBA"
+			},
+			"400": {
+				"$value": "#F08FA1"
+			},
+			"500": {
+				"$value": "#EC7187"
+			},
+			"600": {
+				"$value": "#E8536E"
+			},
+			"700": {
+				"$value": "#B62F48"
+			},
+			"800": {
+				"$value": "#7C2535"
+			},
+			"900": {
+				"$value": "#481C24"
+			}
+		},
+		"neutral": {
+			"000": {
+				"$value": "#FFFFFF"
+			},
+			"100": {
+				"$value": "#E5E5E5"
+			},
+			"200": {
+				"$value": "#CBCBCB"
+			},
+			"300": {
+				"$value": "#B1B1B1"
+			},
+			"400": {
+				"$value": "#979797"
+			},
+			"500": {
+				"$value": "#7C7C7C"
+			},
+			"600": {
+				"$value": "#626262"
+			},
+			"700": {
+				"$value": "#484848"
+			},
+			"800": {
+				"$value": "#2B2B2B"
+			},
+			"900": {
+				"$value": "#141414"
+			}
+		},
+		"status": {
+			"success-light": {
+				"$value": "#D1E7E2"
+			},
+			"success-regular": {
+				"$value": "#177563"
+			},
+			"success-dark": {
+				"$value": "#004D40"
+			},
+			"critical-light": {
+				"$value": "#f5d5d5"
+			},
+			"critical-regular": {
+				"$value": "#c51b3a"
+			},
+			"critical-dark": {
+				"$value": "#881330"
+			}
+		},
+		"interactive": {
+			"focus": {
+				"$value": "#004fe0"
+			},
+			"link": {
+				"$value": "{color.primary.600}"
+			},
+			"link-hover": {
+				"$value": "{color.secondary.700}"
+			}
+		}
+	}
+}

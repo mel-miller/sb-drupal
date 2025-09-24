@@ -1,0 +1,63 @@
+.sb-button {
+	--background: var(--color-secondary-700);
+	--background-hover: var(--color-secondary-800);
+	--foreground: var(--color-neutral-000);
+	--border: transparent;
+	--font-size: var(--dimension-m);
+	--padding: var(--dimension-xs) var(--dimension-l);
+
+	background-color: var(--background);
+	border: 1px solid var(--border);
+	border-radius: var(--border-radius-button);
+	color: var(--foreground);
+	display: inline-block;
+	font-family: var(--text-font-sans);
+	font-size: var(--font-size);
+	font-weight: var(--text-weight-regular);
+	letter-spacing: 0.015em;
+	line-height: 1;
+	padding: var(--padding);
+	transition: all 0.3s ease-in-out;
+
+	&:hover {
+		background-color: var(--background-hover);
+	}
+}
+
+a.sb-button,
+a.sb-button:hover {
+	text-decoration: none !important;
+}
+
+a.sb-button:focus {
+	outline-offset: 4px;
+}
+
+/* Variations */
+.sb-button--secondary {
+	--background: transparent;
+	--background-hover: var(--color-secondary-100);
+	--foreground: var(--color-secondary-700);
+	--border: var(--color-secondary-700);
+}
+
+.sb-button--critical {
+	--background: var(--color-status-critical-regular);
+	--background-hover: var(--color-status-critical-dark);
+	--foreground: var(--color-neutral-000);
+}
+
+/* Size variations */
+.sb-button--sm {
+	--font-size: var(--dimension-s);
+	--padding: var(--dimension-3xs) var(--dimension-s);
+}
+.sb-button--lg {
+	--font-size: var(--dimension-l);
+	--padding: var(--dimension-s) var(--dimension-xl);
+}
+
+.sb-button-group {
+	display: inline-flex;
+	gap: var(--dimension-m);
+}

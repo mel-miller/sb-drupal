@@ -1,0 +1,35 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var(--color-text-heading);
+	font-weight: var(--text-weight-bold);
+	font-family: var(--text-font-sans);
+	line-height: var(--text-line-height-sm);
+	margin-block: var(--dimension-m);
+}
+
+h1 {
+	font-size: var(--text-size-5xl);
+}
+h2 {
+	font-size: var(--text-size-4xl);
+}
+h3 {
+	font-size: var(--text-size-3xl);
+	font-weight: var(--text-weight-semibold);
+}
+h4 {
+	font-size: var(--text-size-2xl);
+	font-weight: var(--text-weight-semibold);
+}
+h5 {
+	font-size: var(--text-size-xl);
+	font-weight: var(--text-weight-medium);
+}
+h6 {
+	font-size: var(--text-size-l);
+	font-weight: var(--text-weight-medium);
+}

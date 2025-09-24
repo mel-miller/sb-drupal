@@ -1,0 +1,90 @@
+{
+	"text": {
+		"font": {
+			"$type": "fontFamily",
+			"mono": {
+				"$value": "'Source Code Pro', monospace"
+			},
+			"sans": {
+				"$value": "'Roboto', sans-serif"
+			},
+			"serif": {
+				"$value": "'EB Garamond', serif"
+			}
+		},
+		"size": {
+			"$type": "fontSize",
+			"s": {
+				"$value": "0.8rem"
+			},
+			"m": {
+				"$value": "1rem"
+			},
+			"l": {
+				"$value": "1.25rem"
+			},
+			"xl": {
+				"$value": "1.563rem"
+			},
+			"2xl": {
+				"$value": "1.953rem"
+			},
+			"3xl": {
+				"$value": "2.441rem"
+			},
+			"4xl": {
+				"$value": "3.052rem"
+			},
+			"5xl": {
+				"$value": "3.815rem"
+			},
+			"6xl": {
+				"$value": "4.768rem"
+			},
+			"body": {
+				"$value": "1rem"
+			}
+		},
+		"weight": {
+			"$type": "fontWeight",
+			"light": {
+				"$value": "300"
+			},
+			"regular": {
+				"$value": "400"
+			},
+			"medium": {
+				"$value": "500"
+			},
+			"semibold": {
+				"$value": "600"
+			},
+			"bold": {
+				"$value": "700"
+			}
+		},
+		"lineHeight": {
+			"$type": "number",
+			"sm": {
+				"$value": "120%"
+			},
+			"md": {
+				"$value": "160%"
+			},
+			"lg": {
+				"$value": "180%"
+			}
+		},
+		"typography": {
+			"$type": "typography",
+			"body": {
+				"$value": {
+					"fontFamily": "{text.font.sans}",
+					"fontWeight": "{text.weight.regular}",
+					"fontSize": "{text.size.body}",
+					"lineHeight": "{text.lineHeight.lg}"
+				}
+			}
+		}
+	}
+}

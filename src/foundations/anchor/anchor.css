@@ -1,0 +1,25 @@
+a {
+	color: var(--color-interactive-link);
+	font-family: inherit;
+	font-weight: inherit;
+	text-decoration: underline;
+
+	&:hover {
+		text-decoration: none;
+		color: var(--color-interactive-link-hover);
+	}
+
+	&:active {
+		color: var(--color-interactive-link-hover);
+	}
+
+	&:visited {
+		color: var(--color-interactive-link);
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--color-interactive-focus);
+		outline-offset: 2px;
+		text-decoration: none;
+	}
+}

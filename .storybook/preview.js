@@ -1,103 +1,46 @@
-import { addDecorator } from '@storybook/html'
-import { useEffect } from '@storybook/client-api'
-import './_drupal.js'
-import '../public/css/sb-main.css'
-import '../public/css/storybook.local.css'
+/** @type { import('@storybook/html-vite').Preview } */
+import Twig from 'twig'
+import twigDrupal from 'twig-drupal-filters'
 
-// Configure for use with Twig.
-const Twig = require('twig')
-const { addDrupalExtensions } = require('drupal-twig-extensions/twig')
-addDrupalExtensions(Twig)
+import { customBackgrounds } from './backgrounds'
+import { customViewports } from './viewports'
 
-// Emulate Drupal behaviors.
-addDecorator((Story) => {
-	useEffect(() => Drupal.attachBehaviors(), [])
-	return Story()
-})
+import '../src/sb-global.css'
 
-// Add additional viewports for our breakpoints.
-const breakpointViewports = {
-	small: {
-		name: 'Small Breakpoint',
-		styles: {
-			width: '480px',
-			height: '900px',
-		},
-	},
-	medium: {
-		name: 'Medium Breakpoint',
-		styles: {
-			width: '760px',
-			height: '1200px',
-		},
-	},
-	large: {
-		name: 'Large Breakpoint',
-		styles: {
-			width: '1025px',
-			height: '1200px',
-		},
-	},
-	max: {
-		name: 'Max Container Width',
-		styles: {
-			width: '1200px',
-			height: '1200px',
-		},
-	},
+function setupTwig(twig) {
+	twig.cache()
+	twigDrupal(twig)
+	return twig
 }
 
-export const parameters = {
-	options: {
-		storySort: {
-			order: [
-				'Documentation',
-				['Introduction', 'Installation', 'Theme Setup', 'Theme Usage', '*'],
-				'Foundations',
-				'Utilities',
-				'Components',
-				['Icon', 'Button', 'Link', 'Card', 'Tabs', '*'],
-				'Recipes',
-			],
+setupTwig(Twig)
+
+const preview = {
+	parameters: {
+		options: {
+			storySort: {
+				order: [
+					'Documentation',
+					['Overview', '*'],
+					'Foundations',
+					'Utilities',
+					'Elements',
+					'Components',
+					'Layouts',
+					'*',
+				],
+				includeName: true,
+			},
 		},
+		backgrounds: { options: customBackgrounds },
+		viewport: { viewports: customViewports },
 	},
-	actions: { argTypesRegex: '^on[A-Z].*' },
 	controls: {
 		matchers: {
 			color: /(background|color)$/i,
 			date: /Date$/,
 		},
 	},
-	backgrounds: {
-		default: 'white',
-		values: [
-			{
-				name: 'white',
-				value: 'var(--color-neutral-white)',
-			},
-			{
-				name: 'light',
-				value: 'var(--color-neutral-lightest)',
-			},
-			{
-				name: 'primary-lightest',
-				value: 'var(--color-primary-lightest)',
-			},
-			{
-				name: 'accent-lightest',
-				value: 'var(--color-accent-lightest)',
-			},
-			{
-				name: 'dark',
-				value: 'var(--color-neutral-darkest)',
-			},
-			{
-				name: 'primary-dark',
-				value: 'var(--color-primary-dark)',
-			},
-		],
-	},
-	viewport: {
-		viewports: breakpointViewports,
-	},
 }
+
+export default preview
