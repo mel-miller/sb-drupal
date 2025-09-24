@@ -52,24 +52,10 @@ jobs:
       - name: Build Storybook
         run: npm run build-storybook
 
-      # Release deployment (root) - only for tags
-      - name: Setup Pages (Release)
-        if: startsWith(github.ref, 'refs/tags/v')
-        uses: actions/configure-pages@v4
+      # Note: Release files will be deployed to root via the git method above
 
-      - name: Upload Storybook to Pages (Release)
-        if: startsWith(github.ref, 'refs/tags/v')
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './storybook-static'
-
-      - name: Deploy to GitHub Pages (Release)
-        if: startsWith(github.ref, 'refs/tags/v')
-        id: deployment
-        uses: actions/deploy-pages@v4
-
-      # Also deploy release to versioned directory
-      - name: Deploy release to versioned directory
+      # Also deploy release to versioned directory AND root
+      - name: Deploy release to versioned directory and root
         if: startsWith(github.ref, 'refs/tags/v')
         run: |
           # Configure git
@@ -101,15 +87,19 @@ jobs:
 
           cd gh-pages-repo
 
+          # Deploy to root (but preserve subdirectories)
+          # Copy all storybook files to root, but don't overwrite existing directories
+          cp -r ../sb-drupal/storybook-static/* .
+
           # Create versioned directory and copy files
           VERSION_DIR="$TAG_NAME"
           rm -rf "$VERSION_DIR" 2>/dev/null || true
           mkdir -p "$VERSION_DIR"
           cp -r ../sb-drupal/storybook-static/* "$VERSION_DIR/"
 
-          # Add, commit and push
-          git add "$VERSION_DIR"
-          git commit -m "Deploy release $TAG_NAME to $VERSION_DIR directory"
+          # Add, commit and push all changes
+          git add .
+          git commit -m "Deploy release $TAG_NAME to root and $VERSION_DIR directory"
           git push origin gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
