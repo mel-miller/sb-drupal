@@ -1,6 +1,6 @@
 .sb-button {
-	--background: var(--color-primary-700);
-	--background-hover: var(--color-primary-800);
+	--background: var(--color-secondary-700);
+	--background-hover: var(--color-secondary-800);
 	--foreground: var(--color-neutral-000);
 	--border: transparent;
 	--font-size: var(--dimension-m);
@@ -36,16 +36,15 @@ a.sb-button:focus {
 /* Variations */
 .sb-button--secondary {
 	--background: transparent;
-	--background-hover: var(--color-primary-100);
-	--foreground: var(--color-primary-700);
-	--border: var(--color-primary-700);
+	--background-hover: var(--color-secondary-100);
+	--foreground: var(--color-secondary-700);
+	--border: var(--color-secondary-700);
 }
 
 .sb-button--critical {
-	--background: transparent;
-	--background-hover: var(--color-status-error-light);
-	--foreground: var(--color-status-error);
-	--border: var(--color-status-error);
+	--background: var(--color-status-critical-regular);
+	--background-hover: var(--color-status-critical-dark);
+	--foreground: var(--color-neutral-000);
 }
 
 /* Size variations */
