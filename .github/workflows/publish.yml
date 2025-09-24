@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    tags:
+      - 'v*'
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
@@ -38,21 +40,50 @@ jobs:
       - name: Build Storybook
         run: npm run build-storybook
 
-      # Main branch deployment (root)
-      - name: Setup Pages (Main)
-        if: github.ref == 'refs/heads/main'
+      # Release deployment (root) - only for tags
+      - name: Setup Pages (Release)
+        if: startsWith(github.ref, 'refs/tags/v')
         uses: actions/configure-pages@v4
 
-      - name: Upload Storybook to Pages (Main)
-        if: github.ref == 'refs/heads/main'
+      - name: Upload Storybook to Pages (Release)
+        if: startsWith(github.ref, 'refs/tags/v')
         uses: actions/upload-pages-artifact@v3
         with:
           path: './storybook-static'
 
-      - name: Deploy to GitHub Pages (Main)
-        if: github.ref == 'refs/heads/main'
+      - name: Deploy to GitHub Pages (Release)
+        if: startsWith(github.ref, 'refs/tags/v')
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # Main branch deployment (main directory)
+      - name: Deploy main branch to subdirectory
+        if: github.ref == 'refs/heads/main'
+        run: |
+          # Configure git
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Setup authentication
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+
+          # Fetch and checkout gh-pages branch (create if doesn't exist)
+          git fetch origin gh-pages:gh-pages 2>/dev/null || git checkout --orphan gh-pages
+          git checkout gh-pages 2>/dev/null || echo "Created new gh-pages branch"
+
+          # Create main directory and copy files
+          MAIN_DIR="main"
+          mkdir -p "$MAIN_DIR"
+          cp -r storybook-static/* "$MAIN_DIR/"
+
+          # Add and commit
+          git add "$MAIN_DIR"
+          git commit -m "Deploy main branch to $MAIN_DIR directory" || echo "No changes to commit"
+
+          # Push to gh-pages
+          git push origin gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # PR deployment (subdirectory)
       - name: Deploy PR to subdirectory
